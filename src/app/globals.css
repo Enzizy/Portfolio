@@ -23,16 +23,63 @@ body {
     radial-gradient(circle at 20% 20%, rgba(217, 101, 59, 0.22), transparent 38%),
     radial-gradient(circle at 80% 12%, rgba(72, 102, 143, 0.23), transparent 34%),
     radial-gradient(circle at 60% 90%, rgba(236, 172, 81, 0.22), transparent 44%);
+  animation: ambient-shift 18s ease-in-out infinite alternate;
 }
 
 a {
   color: inherit;
+  transition: color 220ms ease;
 }
 
 .glass-card {
   border: 1px solid rgba(31, 28, 26, 0.12);
   background: color-mix(in srgb, var(--card) 84%, white 16%);
   box-shadow: 0 20px 45px rgba(31, 28, 26, 0.08);
+  transition:
+    transform 260ms ease,
+    box-shadow 260ms ease,
+    border-color 260ms ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  border-color: rgba(31, 28, 26, 0.22);
+  box-shadow: 0 26px 52px rgba(31, 28, 26, 0.13);
+}
+
+.btn-pop {
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    background-color 220ms ease,
+    color 220ms ease;
+}
+
+.btn-pop:hover {
+  transform: translateY(-2px);
+}
+
+.float-slow {
+  animation: float-slow 3.6s ease-in-out infinite;
+}
+
+.placeholder-wave {
+  position: relative;
+  overflow: hidden;
+}
+
+.placeholder-wave::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-110%);
+  background: linear-gradient(
+    100deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 80%
+  );
+  animation: placeholder-wave 2.4s ease-in-out infinite;
 }
 
 .headline {
@@ -47,6 +94,21 @@ a {
   animation: reveal-up 950ms ease-out both;
 }
 
+@keyframes ambient-shift {
+  from {
+    background-position:
+      0% 0%,
+      0% 0%,
+      0% 0%;
+  }
+  to {
+    background-position:
+      4% -3%,
+      -2% 4%,
+      3% 2%;
+  }
+}
+
 @keyframes reveal-up {
   from {
     opacity: 0;
@@ -55,5 +117,33 @@ a {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes placeholder-wave {
+  0% {
+    transform: translateX(-110%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
   }
 }

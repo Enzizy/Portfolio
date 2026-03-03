@@ -106,7 +106,7 @@ export default async function Home() {
 
   return (
     <main className="mx-auto w-full max-w-6xl px-5 py-8 md:px-8 md:py-14">
-      <section className="glass-card reveal-up overflow-hidden rounded-3xl p-6 md:p-10">
+      <section className="glass-card hover-lift reveal-up overflow-hidden rounded-3xl p-6 md:p-10">
         <div className="grid gap-8 md:grid-cols-[1.2fr_0.8fr] md:items-end">
           <div>
             <p className="font-mono text-xs tracking-[0.25em] uppercase text-[#7d4e3f]">
@@ -125,13 +125,13 @@ export default async function Home() {
                 href={githubProfileUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full bg-[#1f1c1a] px-5 py-2.5 text-sm font-medium text-[#fdf8f1] transition hover:bg-[#000]"
+                className="btn-pop rounded-full bg-[#1f1c1a] px-5 py-2.5 text-sm font-medium text-[#fdf8f1] transition hover:bg-[#000]"
               >
                 View GitHub
               </a>
               <a
                 href={`mailto:${emailAddress}`}
-                className="rounded-full border border-[#1f1c1a] px-5 py-2.5 text-sm font-medium text-[#1f1c1a] transition hover:bg-[#1f1c1a] hover:text-[#fdf8f1]"
+                className="btn-pop rounded-full border border-[#1f1c1a] px-5 py-2.5 text-sm font-medium text-[#1f1c1a] transition hover:bg-[#1f1c1a] hover:text-[#fdf8f1]"
               >
                 Contact Me
               </a>
@@ -140,7 +140,7 @@ export default async function Home() {
 
           <div className="rounded-2xl border border-[#1f1c1a]/15 bg-[#fff6e9] p-5">
             <div className="mb-4 flex items-center gap-3 rounded-xl bg-white/70 p-3">
-              <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-dashed border-[#1f1c1a]/35 bg-white text-center font-mono text-[10px] leading-tight text-[#6c5f58]">
+              <div className="float-slow flex h-16 w-16 items-center justify-center rounded-full border-2 border-dashed border-[#1f1c1a]/35 bg-white text-center font-mono text-[10px] leading-tight text-[#6c5f58]">
                 Profile
                 <br />
                 Image
@@ -176,21 +176,23 @@ export default async function Home() {
       </section>
 
       <section className="reveal-up-delay mt-8 grid gap-6 md:grid-cols-2">
-        <article className="glass-card rounded-3xl p-6 md:col-span-2">
+        <article className="glass-card hover-lift reveal-up rounded-3xl p-6 md:col-span-2">
           <p className="font-mono text-xs tracking-[0.25em] uppercase text-[#7d4e3f]">
             Biography
           </p>
           <p className="mt-4 text-base leading-relaxed text-[#3b332f]">
             My full name is <span className="font-semibold">Rolex Zhyronne Batican</span>.
             I am <span className="font-semibold">22 years old</span> and currently a{" "}
-            <span className="font-semibold">4th year BSIT student</span>. I build
-            practical software projects and have hands-on experience with{" "}
-            <span className="font-semibold">Java Swing</span> for desktop application
-            development.
+            <span className="font-semibold">4th year BSIT student</span>. I am from{" "}
+            <span className="font-semibold">Barili, Cebu</span> and I build practical
+            software projects.
           </p>
         </article>
 
-        <article className="glass-card rounded-3xl p-6">
+        <article
+          className="glass-card hover-lift reveal-up rounded-3xl p-6"
+          style={{ animationDelay: "120ms" }}
+        >
           <p className="font-mono text-xs tracking-[0.25em] uppercase text-[#7d4e3f]">
             Tech Stack
           </p>
@@ -220,7 +222,10 @@ export default async function Home() {
           </p>
         </article>
 
-        <article className="glass-card rounded-3xl p-6">
+        <article
+          className="glass-card hover-lift reveal-up rounded-3xl p-6"
+          style={{ animationDelay: "220ms" }}
+        >
           <p className="font-mono text-xs tracking-[0.25em] uppercase text-[#7d4e3f]">
             Connect
           </p>
@@ -253,7 +258,7 @@ export default async function Home() {
         </article>
       </section>
 
-      <section className="mt-8">
+      <section className="reveal-up mt-8" style={{ animationDelay: "260ms" }}>
         <div className="mb-4 flex items-center justify-between">
           <p className="font-mono text-xs tracking-[0.25em] uppercase text-[#7d4e3f]">
             Featured Projects
@@ -269,8 +274,12 @@ export default async function Home() {
         </div>
 
         <div className="grid gap-4 md:grid-cols-2">
-          {repos.map((repo) => (
-            <article key={repo.id} className="glass-card rounded-2xl p-5">
+          {repos.map((repo, index) => (
+            <article
+              key={repo.id}
+              className="glass-card hover-lift reveal-up rounded-2xl p-5"
+              style={{ animationDelay: `${300 + index * 90}ms` }}
+            >
               <div className="flex items-center justify-between gap-2">
                 <h2 className="text-xl font-semibold">{repo.name}</h2>
                 <span className="font-mono text-xs text-[#7b6d65]">
@@ -298,7 +307,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="mt-8">
+      <section className="reveal-up mt-8" style={{ animationDelay: "420ms" }}>
         <div className="mb-4 flex items-center justify-between">
           <p className="font-mono text-xs tracking-[0.25em] uppercase text-[#7d4e3f]">
             Project Visuals
@@ -308,9 +317,13 @@ export default async function Home() {
           </p>
         </div>
         <div className="grid gap-4 md:grid-cols-2">
-          {repos.map((repo) => (
-            <article key={`${repo.id}-visual`} className="glass-card rounded-2xl p-5">
-              <div className="flex aspect-video items-center justify-center rounded-xl border-2 border-dashed border-[#1f1c1a]/25 bg-[#fffdf8]">
+          {repos.map((repo, index) => (
+            <article
+              key={`${repo.id}-visual`}
+              className="glass-card hover-lift reveal-up rounded-2xl p-5"
+              style={{ animationDelay: `${500 + index * 90}ms` }}
+            >
+              <div className="placeholder-wave flex aspect-video items-center justify-center rounded-xl border-2 border-dashed border-[#1f1c1a]/25 bg-[#fffdf8]">
                 <p className="text-center text-sm text-[#6f6159]">
                   Screenshot Placeholder
                   <br />
