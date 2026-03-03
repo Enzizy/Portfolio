@@ -139,6 +139,19 @@ export default async function Home() {
           </div>
 
           <div className="rounded-2xl border border-[#1f1c1a]/15 bg-[#fff6e9] p-5">
+            <div className="mb-4 flex items-center gap-3 rounded-xl bg-white/70 p-3">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-dashed border-[#1f1c1a]/35 bg-white text-center font-mono text-[10px] leading-tight text-[#6c5f58]">
+                Profile
+                <br />
+                Image
+              </div>
+              <div>
+                <p className="text-sm font-semibold">Profile Photo Placeholder</p>
+                <p className="text-xs text-[#6c5f58]">
+                  Replace with your image later.
+                </p>
+              </div>
+            </div>
             <p className="font-mono text-xs tracking-[0.22em] uppercase text-[#8a5a45]">
               Snapshot
             </p>
@@ -265,6 +278,33 @@ export default async function Home() {
                   Open Repo
                 </a>
               </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-8">
+        <div className="mb-4 flex items-center justify-between">
+          <p className="font-mono text-xs tracking-[0.25em] uppercase text-[#7d4e3f]">
+            Project Visuals
+          </p>
+          <p className="text-xs text-[#6f6159]">
+            Temporary image placeholders
+          </p>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2">
+          {repos.map((repo) => (
+            <article key={`${repo.id}-visual`} className="glass-card rounded-2xl p-5">
+              <div className="flex aspect-video items-center justify-center rounded-xl border-2 border-dashed border-[#1f1c1a]/25 bg-[#fffdf8]">
+                <p className="text-center text-sm text-[#6f6159]">
+                  Screenshot Placeholder
+                  <br />
+                  <span className="font-medium text-[#4e4540]">{repo.name}</span>
+                </p>
+              </div>
+              <p className="mt-3 text-xs text-[#6f6159]">
+                Add your UI screenshot or app mockup for this project here.
+              </p>
             </article>
           ))}
         </div>
