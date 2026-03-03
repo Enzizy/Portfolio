@@ -1,26 +1,59 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f4ede3;
+  --foreground: #1f1c1a;
+  --accent: #d9653b;
+  --card: #fff9f1;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-outfit);
+  --font-mono: var(--font-space-mono);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-outfit), sans-serif;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(217, 101, 59, 0.22), transparent 38%),
+    radial-gradient(circle at 80% 12%, rgba(72, 102, 143, 0.23), transparent 34%),
+    radial-gradient(circle at 60% 90%, rgba(236, 172, 81, 0.22), transparent 44%);
+}
+
+a {
+  color: inherit;
+}
+
+.glass-card {
+  border: 1px solid rgba(31, 28, 26, 0.12);
+  background: color-mix(in srgb, var(--card) 84%, white 16%);
+  box-shadow: 0 20px 45px rgba(31, 28, 26, 0.08);
+}
+
+.headline {
+  letter-spacing: -0.03em;
+}
+
+.reveal-up {
+  animation: reveal-up 700ms ease-out both;
+}
+
+.reveal-up-delay {
+  animation: reveal-up 950ms ease-out both;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
