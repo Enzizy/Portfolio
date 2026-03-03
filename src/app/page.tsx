@@ -176,6 +176,20 @@ export default async function Home() {
       </section>
 
       <section className="reveal-up-delay mt-8 grid gap-6 md:grid-cols-2">
+        <article className="glass-card rounded-3xl p-6 md:col-span-2">
+          <p className="font-mono text-xs tracking-[0.25em] uppercase text-[#7d4e3f]">
+            Biography
+          </p>
+          <p className="mt-4 text-base leading-relaxed text-[#3b332f]">
+            My full name is <span className="font-semibold">Rolex Zhyronne Batican</span>.
+            I am <span className="font-semibold">22 years old</span> and currently a{" "}
+            <span className="font-semibold">4th year BSIT student</span>. I build
+            practical software projects and have hands-on experience with{" "}
+            <span className="font-semibold">Java Swing</span> for desktop application
+            development.
+          </p>
+        </article>
+
         <article className="glass-card rounded-3xl p-6">
           <p className="font-mono text-xs tracking-[0.25em] uppercase text-[#7d4e3f]">
             Tech Stack
@@ -188,6 +202,7 @@ export default async function Home() {
               "TypeScript",
               "Vue.js",
               "Firebase",
+              "Java Swing",
               "PHP",
               "Git",
             ].map((tech) => (
