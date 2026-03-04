@@ -88,14 +88,24 @@ export default async function Home() {
                   src={profile.profileImage}
                   alt={`${profile.fullName} profile image`}
                   fill
-                  className="object-cover"
+                  className="theme-profile-image theme-profile-image-light object-cover"
+                  sizes="64px"
+                  priority
+                />
+                <Image
+                  src={profile.darkProfileImage}
+                  alt={`${profile.fullName} dark mode profile image`}
+                  fill
+                  className="theme-profile-image theme-profile-image-dark object-cover"
                   sizes="64px"
                   priority
                 />
               </div>
               <div>
                 <p className="text-sm font-semibold">{profile.fullName}</p>
-                <p className="text-xs text-[#6c5f58]">Replace with your actual photo</p>
+                <p className="text-xs text-[#6c5f58]">
+                  Changes to sleep.png automatically in dark mode
+                </p>
               </div>
             </div>
             <p className="font-mono text-xs tracking-[0.22em] uppercase text-[#8a5a45]">

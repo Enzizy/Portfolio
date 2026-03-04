@@ -14,5 +14,6 @@ export const profile = {
     "I build real-world apps, dashboards, and backend-powered systems focused on usability, reliability, and clear business value.",
   bio: "I am Rolex Zhyronne Batican, a 22-year-old developer from Barili, Cebu. I focus on creating software that improves day-to-day operations, from mobile applications to admin dashboards and backend-supported web systems.",
   profileImage: "/me.jpg",
+  darkProfileImage: "/sleep.png",
   resumeFile: "/Rolex-Zhyronne-Batican-CV.txt",
 };

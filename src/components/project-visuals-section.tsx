@@ -81,7 +81,7 @@ export default function ProjectVisualsSection({
               <h3 className="text-lg font-semibold">{activeProject.name} Preview</h3>
               <button
                 type="button"
-                className="btn-pop rounded-full border border-[#1f1c1a]/25 px-3 py-1 text-sm"
+                className="btn-pop hover-dark-invert rounded-full border border-[#1f1c1a]/25 px-3 py-1 text-sm"
                 onClick={() => setActiveProjectId(null)}
               >
                 Close
