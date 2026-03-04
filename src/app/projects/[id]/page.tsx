@@ -36,7 +36,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
               href={project.liveUrl}
               target="_blank"
               rel="noreferrer"
-              className="btn-pop rounded-full bg-[#1f1c1a] px-4 py-1.5 text-sm font-medium text-[#fdf8f1]"
+              className="btn-pop btn-solid rounded-full px-4 py-1.5 text-sm font-medium"
             >
               Live Demo
             </a>
@@ -105,7 +105,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
           <p className="font-mono text-xs tracking-[0.2em] uppercase text-[#80574a]">Features</p>
           <ul className="mt-3 space-y-2 text-sm leading-relaxed text-[#3b332f]">
             {project.features.map((feature) => (
-              <li key={feature}>• {feature}</li>
+              <li key={feature}>- {feature}</li>
             ))}
           </ul>
         </article>

@@ -59,6 +59,29 @@ a {
   transform: translateY(-2px);
 }
 
+.btn-solid {
+  background-color: #1f1c1a;
+  color: #fdf8f1 !important;
+}
+
+.btn-solid:visited,
+.btn-solid:hover,
+.btn-solid:focus-visible,
+.btn-solid:active {
+  color: #fdf8f1 !important;
+}
+
+.btn-solid:hover {
+  background-color: #000;
+}
+
+.hover-dark-invert:hover,
+.hover-dark-invert:focus-visible {
+  background-color: #1f1c1a;
+  border-color: #1f1c1a;
+  color: #fdf8f1 !important;
+}
+
 .float-slow {
   animation: float-slow 3.6s ease-in-out infinite;
 }

@@ -61,7 +61,7 @@ export default async function Home() {
             <div className="mt-7 flex flex-wrap gap-3">
               <a
                 href="#projects"
-                className="btn-pop rounded-full bg-[#1f1c1a] px-5 py-2.5 text-sm font-medium text-[#fdf8f1] transition hover:bg-[#000]"
+                className="btn-pop btn-solid rounded-full px-5 py-2.5 text-sm font-medium transition"
               >
                 View Projects
               </a>
@@ -74,7 +74,7 @@ export default async function Home() {
               </a>
               <a
                 href="#contact"
-                className="btn-pop rounded-full border border-[#1f1c1a] px-5 py-2.5 text-sm font-medium text-[#1f1c1a] transition hover:bg-[#1f1c1a] hover:text-[#fdf8f1]"
+                className="btn-pop hover-dark-invert rounded-full border border-[#1f1c1a] px-5 py-2.5 text-sm font-medium text-[#1f1c1a] transition"
               >
                 Contact Me
               </a>
@@ -216,7 +216,7 @@ export default async function Home() {
               <p className="mt-1 text-sm font-medium text-[#5a4f48]">{item.role}</p>
               <ul className="mt-4 space-y-2 text-sm leading-relaxed text-[#3b332f]">
                 {item.achievements.map((achievement) => (
-                  <li key={achievement}>• {achievement}</li>
+                  <li key={achievement}>- {achievement}</li>
                 ))}
               </ul>
             </article>
@@ -289,7 +289,7 @@ export default async function Home() {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="btn-pop rounded-full bg-[#1f1c1a] px-3.5 py-1.5 text-xs font-medium text-[#fdf8f1]"
+                    className="btn-pop btn-solid rounded-full px-3.5 py-1.5 text-xs font-medium"
                   >
                     Live Demo
                   </a>
@@ -394,7 +394,7 @@ export default async function Home() {
             <CopyEmailButton email={profile.email} />
             <a
               href={`mailto:${profile.email}`}
-              className="btn-pop rounded-full bg-[#1f1c1a] px-4 py-2 font-medium text-[#fdf8f1]"
+              className="btn-pop btn-solid rounded-full px-4 py-2 font-medium"
             >
               Contact Me
             </a>

@@ -23,7 +23,7 @@ export default function CopyEmailButton({ email }: CopyEmailButtonProps) {
     <button
       type="button"
       onClick={handleCopy}
-      className="btn-pop rounded-full border border-[#1f1c1a]/40 px-4 py-2 text-sm font-medium transition hover:bg-[#1f1c1a] hover:text-[#fdf8f1]"
+      className="btn-pop hover-dark-invert rounded-full border border-[#1f1c1a]/40 px-4 py-2 text-sm font-medium transition"
       aria-label="Copy email address"
     >
       {copied ? "Copied" : "Copy Email"}
