@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320" fill="none">
+  <rect width="320" height="320" rx="160" fill="#F8EEDF" />
+  <circle cx="160" cy="128" r="58" fill="#E8D9C3" />
+  <path d="M60 284C60 224.353 108.353 176 168 176H152C211.647 176 260 224.353 260 284V320H60V284Z" fill="#E2CFB4" />
+  <text x="160" y="304" text-anchor="middle" fill="#7D5A4E" font-family="Arial, sans-serif" font-size="18">
+    Add Photo
+  </text>
+</svg>

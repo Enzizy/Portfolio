@@ -1,0 +1,29 @@
+Rolex Zhyronne Batican
+Location: Barili, Cebu, Philippines
+Email: rolexzhy@gmail.com
+GitHub: https://github.com/Enzizy
+
+Professional Summary
+Aspiring software developer focused on mobile and full-stack web systems. Experienced in building practical dashboards, workflow tools, and backend-powered applications.
+
+Core Skills
+- Flutter, Kotlin
+- JavaScript, TypeScript, Vue
+- Firebase, Supabase, MySQL
+- Vercel, Render, Cloudflare
+- Git
+
+Experience
+Joyno Media - Developer / Intern
+- Improved HR system features including task assignment and email notifications.
+- Worked on real web systems and operational dashboards.
+- Assisted in client proposals and product presentations.
+
+Projects
+- Joyno HR System
+- CRM System
+- CCR System
+- LocalAid Admin
+
+Note
+Replace this placeholder file with your final PDF CV when ready.
