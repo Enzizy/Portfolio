@@ -112,7 +112,7 @@ a {
 .btn-solid:hover,
 .btn-solid:focus-visible,
 .btn-solid:active {
-  color: #fdf8f1 !important;
+  color: var(--solid-btn-text) !important;
 }
 
 .btn-solid:hover {
@@ -195,6 +195,30 @@ html[data-theme="dark"] .theme-profile-image-dark {
   );
 }
 
+.portfolio-canvas {
+  position: relative;
+}
+
+.portfolio-canvas::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-image:
+    linear-gradient(transparent 96%, rgba(255, 255, 255, 0.04) 100%),
+    linear-gradient(90deg, transparent 96%, rgba(255, 255, 255, 0.04) 100%);
+  background-size: 28px 28px, 28px 28px;
+  opacity: 0.25;
+}
+
+html[data-theme="dark"] .portfolio-canvas::before {
+  background-image:
+    linear-gradient(transparent 96%, rgba(255, 255, 255, 0.03) 100%),
+    linear-gradient(90deg, transparent 96%, rgba(255, 255, 255, 0.03) 100%);
+  opacity: 0.2;
+}
+
 .page-shell {
   color: var(--text-primary);
 }
@@ -248,6 +272,37 @@ html[data-theme="dark"] .theme-profile-image-dark {
 .project-frame {
   border: 1px solid var(--card-border);
   background: linear-gradient(145deg, color-mix(in srgb, var(--card) 90%, transparent), var(--soft-surface));
+}
+
+.metric-compact {
+  border: 1px solid var(--card-border);
+  background: color-mix(in srgb, var(--card) 84%, transparent);
+}
+
+.portrait-stage {
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--card) 90%, transparent) 0%,
+    color-mix(in srgb, var(--soft-surface) 88%, transparent) 100%
+  );
+}
+
+.portrait-ring {
+  background:
+    radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 60%),
+    radial-gradient(circle at 72% 70%, color-mix(in srgb, var(--bg-glow-2) 75%, transparent), transparent 62%),
+    color-mix(in srgb, var(--card) 76%, transparent);
+}
+
+.process-item {
+  border: 1px solid var(--card-border);
+  background: color-mix(in srgb, var(--soft-surface) 74%, transparent);
+}
+
+.process-index {
+  border: 1px solid var(--card-border-strong);
+  background: color-mix(in srgb, var(--card) 70%, transparent);
+  color: var(--text-primary);
 }
 
 .eyebrow-line {

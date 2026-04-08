@@ -4,16 +4,48 @@ import CopyEmailButton from "@/components/copy-email-button";
 import ProjectVisualsSection from "@/components/project-visuals-section";
 import ScreenshotPlaceholder from "@/components/screenshot-placeholder";
 import { currentlyBuildingItems } from "@/data/currently-building";
-import { experienceItems } from "@/data/experience";
 import { metrics } from "@/data/metrics";
 import { profile } from "@/data/profile";
 import { featuredProjects } from "@/data/projects";
-import { skillCategories } from "@/data/skills";
 import { testimonials } from "@/data/testimonials";
 
 type GitHubProfile = {
   public_repos?: number;
 };
+
+type Capability = {
+  title: string;
+  summary: string;
+  tag: string;
+};
+
+const capabilities: Capability[] = [
+  {
+    title: "Product-Minded Development",
+    summary:
+      "I map technical decisions to user outcomes so every feature serves real workflow value.",
+    tag: "Strategy + Build",
+  },
+  {
+    title: "Cross-Platform Execution",
+    summary:
+      "From mobile to web dashboards, I ship consistent experiences with practical backend support.",
+    tag: "Flutter + Web",
+  },
+  {
+    title: "Operational Reliability",
+    summary:
+      "I design systems that reduce manual bottlenecks and make data states easier to manage.",
+    tag: "System Design",
+  },
+];
+
+const processSteps = [
+  "Discover workflow pain points with stakeholders",
+  "Design usable flows before writing core logic",
+  "Build fast, validate early, and iterate with feedback",
+  "Polish UX details and deploy with monitoring in place",
+];
 
 async function getFeaturedRepoCount(): Promise<number> {
   try {
@@ -38,19 +70,21 @@ async function getFeaturedRepoCount(): Promise<number> {
 export default async function Home() {
   const repoCount = await getFeaturedRepoCount();
   const reviewAnchor = testimonials.length > 0 ? "reviews" : "about";
+  const leadProject = featuredProjects[0];
+  const remainingProjects = featuredProjects.slice(1);
 
   return (
-    <main className="page-shell mx-auto w-full max-w-6xl px-5 py-6 md:px-8 md:py-10">
+    <main className="page-shell portfolio-canvas mx-auto w-full max-w-7xl px-5 pb-14 pt-6 md:px-8 md:pt-10">
       <header className="reveal-up sticky top-4 z-40 mb-8">
-        <div className="nav-pill mx-auto flex w-full max-w-3xl items-center justify-between rounded-full px-3 py-2 shadow-[0_10px_30px_rgba(0,0,0,0.08)]">
-          <div className="flex items-center gap-2">
-            <div className="relative h-9 w-9 overflow-hidden rounded-full border border-[var(--card-border)]">
+        <div className="nav-pill mx-auto flex w-full max-w-4xl items-center justify-between rounded-full px-3 py-2 shadow-[0_16px_36px_rgba(0,0,0,0.12)]">
+          <div className="flex min-w-0 items-center gap-3">
+            <div className="relative h-10 w-10 overflow-hidden rounded-full border border-[var(--card-border)]">
               <Image
                 src={profile.profileImage}
                 alt={`${profile.fullName} profile image`}
                 fill
                 className="theme-profile-image theme-profile-image-light object-cover"
-                sizes="36px"
+                sizes="40px"
                 priority
               />
               <Image
@@ -58,18 +92,21 @@ export default async function Home() {
                 alt={`${profile.fullName} dark mode profile image`}
                 fill
                 className="theme-profile-image theme-profile-image-dark object-cover"
-                sizes="36px"
+                sizes="40px"
                 priority
               />
             </div>
             <div className="min-w-0">
-              <p className="truncate text-sm font-semibold text-main">{profile.displayName}</p>
+              <p className="truncate text-sm font-semibold text-main">{profile.fullName}</p>
               <p className="truncate text-xs text-subtle">{profile.status}</p>
             </div>
           </div>
           <nav className="hidden items-center gap-1 md:flex">
             <a href="#projects" className="nav-link rounded-full px-4 py-2 text-sm">
               Projects
+            </a>
+            <a href="#capabilities" className="nav-link rounded-full px-4 py-2 text-sm">
+              Capabilities
             </a>
             <a href={`#${reviewAnchor}`} className="nav-link rounded-full px-4 py-2 text-sm">
               {testimonials.length > 0 ? "Reviews" : "About"}
@@ -81,31 +118,31 @@ export default async function Home() {
         </div>
       </header>
 
-      <section className="glass-card hover-lift reveal-up rounded-[2rem] p-6 md:p-10">
-        <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
-          <div>
+      <section className="glass-card hover-lift reveal-up rounded-[2.25rem] p-6 md:p-10">
+        <div className="grid gap-8 xl:grid-cols-[1.05fr_0.95fr]">
+          <div className="space-y-6">
             <div className="soft-chip inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium">
               <span className="h-2 w-2 rounded-full bg-[#68b65a]" />
-              Available for work
+              Building real systems, not demos
             </div>
-            <h1 className="headline mt-5 max-w-3xl text-5xl font-semibold leading-[0.95] md:text-7xl">
-              Rolex
+            <h1 className="headline max-w-3xl text-5xl font-semibold leading-[0.9] md:text-7xl xl:text-8xl">
+              Crafting
               <br />
-              Zhyronne
+              useful software
               <br />
-              Batican
+              for real teams.
             </h1>
-            <p className="text-body mt-5 max-w-2xl text-base leading-relaxed md:text-lg">
-              Developer focused on mobile apps, admin systems, and backend-powered web
-              products. I build tools that make day-to-day operations clearer, faster,
-              and easier to manage.
+            <p className="text-body max-w-2xl text-base leading-relaxed md:text-lg">
+              I design and develop mobile apps, admin dashboards, and backend-powered
+              workflows. My focus is practical delivery: clearer operations, better data
+              visibility, and smoother user flow.
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3">
               <a
                 href="#projects"
                 className="btn-pop btn-solid rounded-full px-5 py-2.5 text-sm font-medium"
               >
-                View Projects
+                Explore Projects
               </a>
               <a
                 href={profile.resumeFile}
@@ -118,102 +155,84 @@ export default async function Home() {
                 href="#contact"
                 className="btn-pop hover-dark-invert rounded-full border border-[var(--card-border-strong)] px-5 py-2.5 text-sm font-medium"
               >
-                Contact Me
+                Let&apos;s Work
               </a>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-3">
+              <div className="metric-compact rounded-2xl p-3">
+                <p className="text-subtle text-xs uppercase tracking-[0.15em]">Active</p>
+                <p className="text-main mt-1 text-lg font-semibold">{profile.activeSince}</p>
+              </div>
+              <div className="metric-compact rounded-2xl p-3">
+                <p className="text-subtle text-xs uppercase tracking-[0.15em]">Repositories</p>
+                <p className="text-main mt-1 text-lg font-semibold">{repoCount}</p>
+              </div>
+              <div className="metric-compact rounded-2xl p-3">
+                <p className="text-subtle text-xs uppercase tracking-[0.15em]">Location</p>
+                <p className="text-main mt-1 text-sm font-semibold">{profile.location}</p>
+              </div>
             </div>
           </div>
 
-          <aside className="surface-soft rounded-[1.75rem] border border-[var(--card-border)] p-5">
-            <div className="mb-4 flex items-center gap-4">
-              <div className="relative h-31 w-31 overflow-hidden rounded-[1.8rem] border border-[var(--card-border)]">
-                <Image
-                  src={profile.profileImage}
-                  alt={`${profile.fullName} profile image`}
-                  fill
-                  className="theme-profile-image theme-profile-image-light object-cover"
-                  sizes="124px"
-                  priority
-                />
-                <Image
-                  src={profile.darkProfileImage}
-                  alt={`${profile.fullName} dark mode profile image`}
-                  fill
-                  className="theme-profile-image theme-profile-image-dark object-cover"
-                  sizes="124px"
-                  priority
-                />
+          <aside className="surface-soft rounded-[2rem] border border-[var(--card-border)] p-5 md:p-6">
+            <div className="portrait-stage relative overflow-hidden rounded-[1.6rem] border border-[var(--card-border)] p-4">
+              <div className="portrait-ring mx-auto mb-4 flex h-72 w-72 items-center justify-center rounded-full md:h-[21rem] md:w-[21rem]">
+                <div className="relative h-64 w-64 overflow-hidden rounded-full border border-[var(--card-border-strong)] md:h-[19rem] md:w-[19rem]">
+                  <Image
+                    src={profile.profileImage}
+                    alt={`${profile.fullName} profile image`}
+                    fill
+                    className="theme-profile-image theme-profile-image-light object-cover"
+                    sizes="(max-width: 768px) 256px, 304px"
+                    priority
+                  />
+                  <Image
+                    src={profile.darkProfileImage}
+                    alt={`${profile.fullName} dark mode profile image`}
+                    fill
+                    className="theme-profile-image theme-profile-image-dark object-cover"
+                    sizes="(max-width: 768px) 256px, 304px"
+                    priority
+                  />
+                </div>
               </div>
-              <div>
-                <p className="text-base font-semibold text-main">{profile.fullName}</p>
-                <p className="text-subtle text-sm">{profile.location}</p>
-              </div>
+              <div className="pointer-events-none absolute -bottom-8 left-1/2 h-24 w-64 -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.16),transparent_72%)] blur-md" />
             </div>
-            <p className="section-kicker font-mono text-xs tracking-[0.25em] uppercase">
-              Snapshot
-            </p>
-            <div className="mt-3 grid grid-cols-3 gap-2">
+            <div className="mt-4 grid grid-cols-3 gap-2">
               <div className="glass-card rounded-xl p-3">
-                <p className="text-subtle font-mono text-[10px] uppercase">Active Since</p>
-                <p className="mt-1 text-sm font-semibold text-main">{profile.activeSince}</p>
+                <p className="text-subtle font-mono text-[10px] uppercase">Core</p>
+                <p className="text-main mt-1 text-xs font-semibold">Mobile + Web</p>
               </div>
               <div className="glass-card rounded-xl p-3">
-                <p className="text-subtle font-mono text-[10px] uppercase">Featured Repos</p>
-                <p className="mt-1 text-sm font-semibold text-main">{repoCount}</p>
+                <p className="text-subtle font-mono text-[10px] uppercase">Focus</p>
+                <p className="text-main mt-1 text-xs font-semibold">Product Workflows</p>
               </div>
               <div className="glass-card rounded-xl p-3">
-                <p className="text-subtle font-mono text-[10px] uppercase">Main Focus</p>
-                <p className="mt-1 text-xs leading-tight font-semibold text-main">{profile.mainFocus}</p>
+                <p className="text-subtle font-mono text-[10px] uppercase">Target</p>
+                <p className="text-main mt-1 text-xs font-semibold">Real Impact</p>
               </div>
             </div>
           </aside>
         </div>
       </section>
 
-      <section id="experience" className="reveal-up mt-12 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-        <div className="glass-card hover-lift rounded-[2rem] p-6 md:p-8">
-          <div className="mb-5 flex items-center gap-3">
-            <p className="section-kicker font-mono text-xs tracking-[0.25em] uppercase">
-              Skills & Experience
-            </p>
-            <span className="eyebrow-line" />
-          </div>
-          <div className="space-y-5">
-            {skillCategories.map((group) => (
-              <div key={group.category}>
-                <h2 className="text-main text-sm font-semibold">{group.category}</h2>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {group.items.map((item) => (
-                    <span key={item} className="soft-chip rounded-full px-3 py-1.5 text-sm">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
+      <section id="capabilities" className="reveal-up mt-14" style={{ animationDelay: "140ms" }}>
+        <div className="mb-5 flex items-center gap-3">
+          <p className="section-kicker font-mono text-xs tracking-[0.25em] uppercase">
+            What I Bring
+          </p>
+          <span className="eyebrow-line" />
         </div>
-
-        <div className="space-y-4">
-          {experienceItems.map((item, index) => (
+        <div className="grid gap-4 lg:grid-cols-3">
+          {capabilities.map((item, index) => (
             <article
-              key={`${item.company}-${item.role}`}
-              className="glass-card hover-lift reveal-up rounded-[2rem] p-6"
-              style={{ animationDelay: `${120 + index * 80}ms` }}
+              key={item.title}
+              className="glass-card hover-lift reveal-up rounded-[1.75rem] p-5"
+              style={{ animationDelay: `${180 + index * 70}ms` }}
             >
-              <div className="flex flex-wrap items-start justify-between gap-3">
-                <div>
-                  <h2 className="text-main text-xl font-semibold">{item.role}</h2>
-                  <p className="text-body mt-1 text-sm">
-                    {item.company}
-                  </p>
-                </div>
-                <span className="soft-chip rounded-full px-3 py-1 text-xs">{item.period}</span>
-              </div>
-              <ul className="text-body mt-4 space-y-2 text-sm leading-relaxed">
-                {item.achievements.map((achievement) => (
-                  <li key={achievement}>- {achievement}</li>
-                ))}
-              </ul>
+              <span className="soft-chip inline-flex rounded-full px-3 py-1 text-xs">{item.tag}</span>
+              <h2 className="text-main mt-4 text-xl font-semibold">{item.title}</h2>
+              <p className="text-body mt-3 text-sm leading-relaxed">{item.summary}</p>
             </article>
           ))}
         </div>
@@ -222,67 +241,42 @@ export default async function Home() {
       <section id="projects" className="reveal-up mt-14" style={{ animationDelay: "180ms" }}>
         <div className="mb-5 flex items-center gap-3">
           <p className="section-kicker font-mono text-xs tracking-[0.25em] uppercase">
-            Projects
+            Signature Work
           </p>
           <span className="eyebrow-line" />
         </div>
-        <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
-          <div>
-            <h2 className="text-main text-3xl font-semibold md:text-4xl">My Latest Projects</h2>
-            <p className="text-body mt-2 max-w-2xl text-sm leading-relaxed">
-              Product-focused work across HR, CRM, backend systems, and admin tools.
-              Each project is documented with purpose, implementation details, and a
-              case-study page.
-            </p>
-          </div>
-          <a
-            href={`${profile.githubUrl}?tab=repositories`}
-            target="_blank"
-            rel="noreferrer"
-            className="text-main text-sm font-medium underline decoration-[var(--accent)] decoration-2 underline-offset-4"
-          >
-            See All
-          </a>
-        </div>
 
-        <div className="grid gap-5 lg:grid-cols-2">
-          {featuredProjects.map((project, index) => (
-            <article
-              key={project.id}
-              className="glass-card hover-lift reveal-up rounded-[2rem] p-5"
-              style={{ animationDelay: `${240 + index * 90}ms` }}
-            >
+        {leadProject ? (
+          <article className="glass-card hover-lift mb-6 rounded-[2rem] p-5 md:p-6">
+            <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
               <div className="project-frame rounded-[1.5rem] p-3">
                 <ScreenshotPlaceholder
-                  screenshot={project.screenshots[0]}
-                  title={project.name}
-                  note={project.highlights[0]}
+                  screenshot={leadProject.screenshots[0]}
+                  title={leadProject.name}
+                  note="Flagship project focus"
                   className="aspect-[16/10]"
                 />
               </div>
-              <div className="mt-5">
-                <div className="flex flex-wrap items-start justify-between gap-3">
-                  <div>
-                    <h3 className="text-main text-xl font-semibold">{project.name}</h3>
-                    <p className="text-body mt-2 text-sm leading-relaxed">
-                      {project.shortDescription}
-                    </p>
-                  </div>
-                  <span className="soft-chip rounded-full px-3 py-1 text-xs">
-                    {project.tech[0]}
-                  </span>
-                </div>
+              <div>
+                <p className="section-kicker font-mono text-xs tracking-[0.2em] uppercase">
+                  Featured Case Study
+                </p>
+                <h2 className="text-main mt-3 text-3xl font-semibold">{leadProject.name}</h2>
+                <p className="text-body mt-3 text-sm leading-relaxed">{leadProject.longDescription}</p>
+                <p className="text-main mt-4 rounded-xl border border-[var(--card-border)] px-3 py-2 text-sm font-medium">
+                  Highlight: {leadProject.highlights[0]}
+                </p>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  {project.tech.slice(1).map((tech) => (
-                    <span key={`${project.id}-${tech}`} className="soft-chip rounded-full px-3 py-1 text-xs">
+                  {leadProject.tech.map((tech) => (
+                    <span key={`${leadProject.id}-${tech}`} className="soft-chip rounded-full px-3 py-1 text-xs">
                       {tech}
                     </span>
                   ))}
                 </div>
                 <div className="mt-5 flex flex-wrap gap-2">
-                  {project.liveUrl ? (
+                  {leadProject.liveUrl ? (
                     <a
-                      href={project.liveUrl}
+                      href={leadProject.liveUrl}
                       target="_blank"
                       rel="noreferrer"
                       className="btn-pop btn-solid rounded-full px-4 py-2 text-sm font-medium"
@@ -291,7 +285,7 @@ export default async function Home() {
                     </a>
                   ) : null}
                   <a
-                    href={project.repoUrl}
+                    href={leadProject.repoUrl}
                     target="_blank"
                     rel="noreferrer"
                     className="btn-pop hover-dark-invert rounded-full border border-[var(--card-border-strong)] px-4 py-2 text-sm font-medium"
@@ -299,12 +293,56 @@ export default async function Home() {
                     GitHub Repo
                   </a>
                   <Link
-                    href={`/projects/${project.id}`}
+                    href={`/projects/${leadProject.id}`}
                     className="btn-pop hover-dark-invert rounded-full border border-[var(--card-border-strong)] px-4 py-2 text-sm font-medium"
                   >
                     View Case Study
                   </Link>
                 </div>
+              </div>
+            </div>
+          </article>
+        ) : null}
+
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {remainingProjects.map((project, index) => (
+            <article
+              key={project.id}
+              className="glass-card hover-lift reveal-up rounded-[1.75rem] p-5"
+              style={{ animationDelay: `${240 + index * 90}ms` }}
+            >
+              <div className="project-frame rounded-[1.25rem] p-2.5">
+                <ScreenshotPlaceholder
+                  screenshot={project.screenshots[0]}
+                  title={project.name}
+                  note={project.highlights[0]}
+                  className="aspect-[4/3]"
+                />
+              </div>
+              <h3 className="text-main mt-4 text-xl font-semibold">{project.name}</h3>
+              <p className="text-body mt-2 text-sm leading-relaxed">{project.shortDescription}</p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {project.tech.slice(0, 3).map((tech) => (
+                  <span key={`${project.id}-${tech}`} className="soft-chip rounded-full px-3 py-1 text-xs">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              <div className="mt-4 flex flex-wrap gap-2">
+                <a
+                  href={project.repoUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-pop hover-dark-invert rounded-full border border-[var(--card-border-strong)] px-4 py-2 text-sm font-medium"
+                >
+                  Repo
+                </a>
+                <Link
+                  href={`/projects/${project.id}`}
+                  className="btn-pop hover-dark-invert rounded-full border border-[var(--card-border-strong)] px-4 py-2 text-sm font-medium"
+                >
+                  Case Study
+                </Link>
               </div>
             </article>
           ))}
@@ -314,52 +352,59 @@ export default async function Home() {
       <ProjectVisualsSection projects={featuredProjects} />
 
       <section id="about" className="reveal-up mt-14" style={{ animationDelay: "220ms" }}>
-        <div className="glass-card hover-lift rounded-[2rem] p-6 md:p-8">
-          <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-            <div>
-              <div className="mb-4 flex items-center gap-3">
-                <p className="section-kicker font-mono text-xs tracking-[0.25em] uppercase">
-                  More About Myself
-                </p>
-                <span className="eyebrow-line" />
+        <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
+          <article className="glass-card hover-lift rounded-[2rem] p-6 md:p-8">
+            <p className="section-kicker font-mono text-xs tracking-[0.25em] uppercase">
+              About Me
+            </p>
+            <p className="text-body mt-4 text-base leading-relaxed md:text-lg">
+              {profile.bio} I care about turning technical work into tangible value for
+              people who use the product every day. My approach prioritizes clarity,
+              usability, and stable delivery over unnecessary complexity.
+            </p>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              <div className="metric-compact rounded-2xl p-3">
+                <p className="text-subtle text-xs uppercase tracking-[0.15em]">Status</p>
+                <p className="text-main mt-1 text-sm font-semibold">{profile.status}</p>
               </div>
-              <p className="text-body max-w-3xl text-base leading-relaxed md:text-lg">
-                {profile.bio} My work stays grounded in solving practical problems:
-                reducing manual work, improving visibility, and building interfaces that
-                people can actually navigate without friction. I am strongest when I can
-                connect product thinking with implementation and turn messy workflows
-                into something usable.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <a
-                  href="#contact"
-                  className="btn-pop btn-solid rounded-full px-5 py-2.5 text-sm font-medium"
-                >
-                  Contact Me
-                </a>
-                <a
-                  href={profile.resumeFile}
-                  download
-                  className="btn-pop hover-dark-invert rounded-full border border-[var(--card-border-strong)] px-5 py-2.5 text-sm font-medium"
-                >
-                  Download CV
-                </a>
+              <div className="metric-compact rounded-2xl p-3">
+                <p className="text-subtle text-xs uppercase tracking-[0.15em]">Availability</p>
+                <p className="text-main mt-1 text-sm font-semibold">{profile.availability}</p>
               </div>
             </div>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {metrics.map((item) => (
-                <article key={item.value} className="surface-soft rounded-[1.5rem] border border-[var(--card-border)] p-4">
-                  <p className="text-main text-lg font-semibold">{item.value}</p>
-                  <p className="text-subtle mt-2 text-sm">{item.label}</p>
-                </article>
+          </article>
+
+          <article className="glass-card hover-lift rounded-[2rem] p-6 md:p-8">
+            <p className="section-kicker font-mono text-xs tracking-[0.25em] uppercase">
+              Working Process
+            </p>
+            <ol className="mt-4 space-y-3">
+              {processSteps.map((step, index) => (
+                <li key={step} className="process-item flex gap-3 rounded-2xl p-3">
+                  <span className="process-index flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-semibold">
+                    {index + 1}
+                  </span>
+                  <p className="text-body text-sm leading-relaxed">{step}</p>
+                </li>
               ))}
-            </div>
-          </div>
+            </ol>
+          </article>
+        </div>
+      </section>
+
+      <section className="reveal-up mt-12" style={{ animationDelay: "260ms" }}>
+        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+          {metrics.map((item) => (
+            <article key={item.value} className="glass-card hover-lift rounded-[1.5rem] p-4">
+              <p className="text-main text-lg font-semibold">{item.value}</p>
+              <p className="text-subtle mt-2 text-sm">{item.label}</p>
+            </article>
+          ))}
         </div>
       </section>
 
       {currentlyBuildingItems.length > 0 && (
-        <section className="reveal-up mt-12" style={{ animationDelay: "260ms" }}>
+        <section className="reveal-up mt-12" style={{ animationDelay: "300ms" }}>
           <div className="mb-4 flex items-center gap-3">
             <p className="section-kicker font-mono text-xs tracking-[0.25em] uppercase">
               Currently Building
@@ -379,10 +424,10 @@ export default async function Home() {
       )}
 
       {testimonials.length > 0 && (
-        <section id="reviews" className="reveal-up mt-12" style={{ animationDelay: "300ms" }}>
+        <section id="reviews" className="reveal-up mt-12" style={{ animationDelay: "340ms" }}>
           <div className="mb-4 flex items-center gap-3">
             <p className="section-kicker font-mono text-xs tracking-[0.25em] uppercase">
-              Trusted by previous teammates
+              Testimonials
             </p>
             <span className="eyebrow-line" />
           </div>
@@ -401,18 +446,17 @@ export default async function Home() {
         </section>
       )}
 
-      <section id="contact" className="reveal-up mt-14 pb-10" style={{ animationDelay: "340ms" }}>
+      <section id="contact" className="reveal-up mt-14 pb-10" style={{ animationDelay: "380ms" }}>
         <article className="glass-card hover-lift rounded-[2rem] p-6 md:p-8">
           <p className="section-kicker font-mono text-xs tracking-[0.25em] uppercase">
-            Reach out anytime
+            Contact
           </p>
           <h2 className="text-main mt-3 text-3xl font-semibold md:text-4xl">
-            Let&apos;s Stay Connected
+            Build something useful together.
           </h2>
           <p className="text-body mt-3 max-w-2xl text-sm leading-relaxed md:text-base">
-            If you need someone who can contribute to mobile apps, dashboards, or
-            backend-powered systems, I&apos;m open to internship and entry-level work.
-            Reach out for collaborations, interviews, or project discussions.
+            I&apos;m open to internship and entry-level opportunities where I can ship
+            meaningful product work across mobile and web.
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <a
