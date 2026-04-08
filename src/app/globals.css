@@ -195,6 +195,67 @@ html[data-theme="dark"] .theme-profile-image-dark {
   );
 }
 
+.page-shell {
+  color: var(--text-primary);
+}
+
+.section-kicker {
+  color: var(--text-eyebrow);
+}
+
+.text-main {
+  color: var(--text-primary);
+}
+
+.text-body {
+  color: var(--text-secondary);
+}
+
+.text-subtle {
+  color: var(--text-muted);
+}
+
+.surface-soft {
+  background: var(--soft-surface);
+}
+
+.nav-pill {
+  border: 1px solid var(--card-border);
+  background: color-mix(in srgb, var(--card) 88%, transparent);
+  color: var(--text-primary);
+  backdrop-filter: blur(10px);
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.soft-chip {
+  border: 1px solid var(--card-border);
+  background: color-mix(in srgb, var(--card) 76%, transparent);
+  color: var(--text-primary);
+}
+
+.project-frame {
+  border: 1px solid var(--card-border);
+  background: linear-gradient(145deg, color-mix(in srgb, var(--card) 90%, transparent), var(--soft-surface));
+}
+
+.eyebrow-line {
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, transparent, var(--card-border-strong), transparent);
+}
+
 .headline {
   letter-spacing: -0.03em;
 }

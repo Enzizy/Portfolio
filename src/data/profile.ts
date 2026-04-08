@@ -4,7 +4,7 @@ export const profile = {
   githubUsername: "Enzizy",
   githubUrl: "https://github.com/Enzizy",
   email: "rolexzhy@gmail.com",
-  location: "Philippines",
+  location: "Barili, Cebu, Philippines",
   status: "4th year BSIT student",
   availability: "Internship / Entry-level",
   activeSince: "June 2023",
