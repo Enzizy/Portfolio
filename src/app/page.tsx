@@ -124,14 +124,14 @@ export default async function Home() {
           </div>
 
           <aside className="surface-soft rounded-[1.75rem] border border-[var(--card-border)] p-5">
-            <div className="mb-5 flex items-center gap-4">
-              <div className="relative h-20 w-20 overflow-hidden rounded-[1.5rem] border border-[var(--card-border)]">
+            <div className="mb-4 flex items-center gap-4">
+              <div className="relative h-31 w-31 overflow-hidden rounded-[1.8rem] border border-[var(--card-border)]">
                 <Image
                   src={profile.profileImage}
                   alt={`${profile.fullName} profile image`}
                   fill
                   className="theme-profile-image theme-profile-image-light object-cover"
-                  sizes="80px"
+                  sizes="124px"
                   priority
                 />
                 <Image
@@ -139,30 +139,30 @@ export default async function Home() {
                   alt={`${profile.fullName} dark mode profile image`}
                   fill
                   className="theme-profile-image theme-profile-image-dark object-cover"
-                  sizes="80px"
+                  sizes="124px"
                   priority
                 />
               </div>
               <div>
-                <p className="text-sm font-semibold text-main">{profile.fullName}</p>
-                <p className="text-subtle text-xs">{profile.location}</p>
+                <p className="text-base font-semibold text-main">{profile.fullName}</p>
+                <p className="text-subtle text-sm">{profile.location}</p>
               </div>
             </div>
             <p className="section-kicker font-mono text-xs tracking-[0.25em] uppercase">
               Snapshot
             </p>
-            <div className="mt-4 grid gap-3 sm:grid-cols-2">
-              <div className="glass-card rounded-2xl p-4">
-                <p className="text-subtle font-mono text-xs">Active Since</p>
-                <p className="mt-1 text-xl font-semibold text-main">{profile.activeSince}</p>
+            <div className="mt-3 grid grid-cols-3 gap-2">
+              <div className="glass-card rounded-xl p-3">
+                <p className="text-subtle font-mono text-[10px] uppercase">Active Since</p>
+                <p className="mt-1 text-sm font-semibold text-main">{profile.activeSince}</p>
               </div>
-              <div className="glass-card rounded-2xl p-4">
-                <p className="text-subtle font-mono text-xs">Featured Repos</p>
-                <p className="mt-1 text-xl font-semibold text-main">{repoCount}</p>
+              <div className="glass-card rounded-xl p-3">
+                <p className="text-subtle font-mono text-[10px] uppercase">Featured Repos</p>
+                <p className="mt-1 text-sm font-semibold text-main">{repoCount}</p>
               </div>
-              <div className="glass-card rounded-2xl p-4 sm:col-span-2">
-                <p className="text-subtle font-mono text-xs">Main Focus</p>
-                <p className="mt-1 text-lg font-semibold text-main">{profile.mainFocus}</p>
+              <div className="glass-card rounded-xl p-3">
+                <p className="text-subtle font-mono text-[10px] uppercase">Main Focus</p>
+                <p className="mt-1 text-xs leading-tight font-semibold text-main">{profile.mainFocus}</p>
               </div>
             </div>
           </aside>
