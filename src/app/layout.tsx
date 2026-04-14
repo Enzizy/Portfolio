@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import MotionOrchestrator from "@/components/motion-orchestrator";
+import PremiumVFX from "@/components/premium-vfx";
 import { Outfit, Space_Mono } from "next/font/google";
 import ThemeToggle from "@/components/theme-toggle";
 import "./globals.css";
@@ -46,6 +48,8 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className={`${outfit.variable} ${spaceMono.variable} antialiased`}>
+        <PremiumVFX />
+        <MotionOrchestrator />
         <ThemeToggle />
         {children}
       </body>

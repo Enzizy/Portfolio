@@ -1,12 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import CopyEmailButton from "@/components/copy-email-button";
 import ProjectVisualsSection from "@/components/project-visuals-section";
 import ScreenshotPlaceholder from "@/components/screenshot-placeholder";
 import { currentlyBuildingItems } from "@/data/currently-building";
+import { experienceItems } from "@/data/experience";
 import { metrics } from "@/data/metrics";
 import { profile } from "@/data/profile";
 import { featuredProjects } from "@/data/projects";
+import { skillCategories } from "@/data/skills";
 import { testimonials } from "@/data/testimonials";
 
 type GitHubProfile = {
@@ -75,7 +78,7 @@ export default async function Home() {
 
   return (
     <main className="page-shell portfolio-canvas mx-auto w-full max-w-7xl px-5 pb-14 pt-6 md:px-8 md:pt-10">
-      <header className="reveal-up sticky top-4 z-40 mb-8">
+      <header data-reveal style={{ "--reveal-delay": "40ms" } as CSSProperties} className="sticky top-4 z-40 mb-8">
         <div className="nav-pill mx-auto flex w-full max-w-4xl items-center justify-between rounded-full px-3 py-2 shadow-[0_16px_36px_rgba(0,0,0,0.12)]">
           <div className="flex min-w-0 items-center gap-3">
             <div className="relative h-10 w-10 overflow-hidden rounded-full border border-[var(--card-border)]">
@@ -118,7 +121,7 @@ export default async function Home() {
         </div>
       </header>
 
-      <section className="glass-card hover-lift reveal-up rounded-[2.25rem] p-6 md:p-10">
+      <section data-reveal style={{ "--reveal-delay": "80ms" } as CSSProperties} className="glass-card hover-lift rounded-[2.25rem] p-6 md:p-10">
         <div className="grid gap-8 xl:grid-cols-[1.05fr_0.95fr]">
           <div className="space-y-6">
             <div className="soft-chip inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium">
@@ -216,7 +219,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section id="capabilities" className="reveal-up mt-14" style={{ animationDelay: "140ms" }}>
+      <section id="capabilities" data-reveal style={{ "--reveal-delay": "120ms" } as CSSProperties} className="mt-14">
         <div className="mb-5 flex items-center gap-3">
           <p className="section-kicker font-mono text-xs tracking-[0.25em] uppercase">
             What I Bring
@@ -226,9 +229,10 @@ export default async function Home() {
         <div className="grid gap-4 lg:grid-cols-3">
           {capabilities.map((item, index) => (
             <article
+              data-reveal
               key={item.title}
-              className="glass-card hover-lift reveal-up rounded-[1.75rem] p-5"
-              style={{ animationDelay: `${180 + index * 70}ms` }}
+              className="glass-card hover-lift rounded-[1.75rem] p-5"
+              style={{ "--reveal-delay": `${180 + index * 70}ms` } as CSSProperties}
             >
               <span className="soft-chip inline-flex rounded-full px-3 py-1 text-xs">{item.tag}</span>
               <h2 className="text-main mt-4 text-xl font-semibold">{item.title}</h2>
@@ -238,7 +242,54 @@ export default async function Home() {
         </div>
       </section>
 
-      <section id="projects" className="reveal-up mt-14" style={{ animationDelay: "180ms" }}>
+      <section id="craft" data-reveal style={{ "--reveal-delay": "160ms" } as CSSProperties} className="mt-14">
+        <div className="mb-5 flex items-center gap-3">
+          <p className="section-kicker font-mono text-xs tracking-[0.25em] uppercase">
+            Craft Stack
+          </p>
+          <span className="eyebrow-line" />
+        </div>
+        <div className="grid gap-5 xl:grid-cols-[1fr_1fr]">
+          <article className="glass-card hover-lift rounded-[1.9rem] p-6">
+            <h2 className="text-main text-2xl font-semibold">Tools I Build With</h2>
+            <div className="mt-4 space-y-4">
+              {skillCategories.map((group) => (
+                <div key={group.category} className="rounded-2xl border border-[var(--card-border)] p-3">
+                  <p className="text-subtle text-xs uppercase tracking-[0.15em]">{group.category}</p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {group.items.map((item) => (
+                      <span key={item} className="soft-chip rounded-full px-3 py-1 text-xs">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </article>
+          <article className="glass-card hover-lift rounded-[1.9rem] p-6">
+            <h2 className="text-main text-2xl font-semibold">Experience Highlights</h2>
+            <div className="mt-4 space-y-3">
+              {experienceItems.map((item) => (
+                <div key={item.company} className="rounded-2xl border border-[var(--card-border)] p-4">
+                  <div className="flex items-center justify-between gap-2">
+                    <p className="text-main text-base font-semibold">{item.role}</p>
+                    <span className="soft-chip rounded-full px-3 py-1 text-xs">{item.period}</span>
+                  </div>
+                  <p className="text-subtle mt-1 text-sm">{item.company}</p>
+                  <ul className="text-body mt-3 space-y-2 text-sm leading-relaxed">
+                    {item.achievements.slice(0, 3).map((achievement) => (
+                      <li key={achievement}>- {achievement}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects" data-reveal style={{ "--reveal-delay": "180ms" } as CSSProperties} className="mt-14">
         <div className="mb-5 flex items-center gap-3">
           <p className="section-kicker font-mono text-xs tracking-[0.25em] uppercase">
             Signature Work
@@ -351,7 +402,7 @@ export default async function Home() {
 
       <ProjectVisualsSection projects={featuredProjects} />
 
-      <section id="about" className="reveal-up mt-14" style={{ animationDelay: "220ms" }}>
+      <section id="about" data-reveal style={{ "--reveal-delay": "220ms" } as CSSProperties} className="mt-14">
         <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
           <article className="glass-card hover-lift rounded-[2rem] p-6 md:p-8">
             <p className="section-kicker font-mono text-xs tracking-[0.25em] uppercase">
@@ -392,7 +443,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="reveal-up mt-12" style={{ animationDelay: "260ms" }}>
+      <section data-reveal style={{ "--reveal-delay": "260ms" } as CSSProperties} className="mt-12">
         <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
           {metrics.map((item) => (
             <article key={item.value} className="glass-card hover-lift rounded-[1.5rem] p-4">
@@ -404,7 +455,7 @@ export default async function Home() {
       </section>
 
       {currentlyBuildingItems.length > 0 && (
-        <section className="reveal-up mt-12" style={{ animationDelay: "300ms" }}>
+        <section data-reveal style={{ "--reveal-delay": "300ms" } as CSSProperties} className="mt-12">
           <div className="mb-4 flex items-center gap-3">
             <p className="section-kicker font-mono text-xs tracking-[0.25em] uppercase">
               Currently Building
@@ -424,7 +475,7 @@ export default async function Home() {
       )}
 
       {testimonials.length > 0 && (
-        <section id="reviews" className="reveal-up mt-12" style={{ animationDelay: "340ms" }}>
+        <section id="reviews" data-reveal style={{ "--reveal-delay": "340ms" } as CSSProperties} className="mt-12">
           <div className="mb-4 flex items-center gap-3">
             <p className="section-kicker font-mono text-xs tracking-[0.25em] uppercase">
               Testimonials
@@ -446,7 +497,7 @@ export default async function Home() {
         </section>
       )}
 
-      <section id="contact" className="reveal-up mt-14 pb-10" style={{ animationDelay: "380ms" }}>
+      <section id="contact" data-reveal style={{ "--reveal-delay": "380ms" } as CSSProperties} className="mt-14 pb-10">
         <article className="glass-card hover-lift rounded-[2rem] p-6 md:p-8">
           <p className="section-kicker font-mono text-xs tracking-[0.25em] uppercase">
             Contact
