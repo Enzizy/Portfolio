@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import type { CSSProperties } from "react";
 import type { PortfolioProject } from "@/types/portfolio";
 import ScreenshotPlaceholder from "@/components/screenshot-placeholder";
 
@@ -20,7 +21,12 @@ export default function ProjectVisualsSection({
   );
 
   return (
-    <section id="visuals" className="reveal-up mt-12" style={{ animationDelay: "360ms" }}>
+    <section
+      id="visuals"
+      data-reveal
+      style={{ "--reveal-delay": "360ms" } as CSSProperties}
+      className="section-gap"
+    >
       <div className="mb-4 flex items-center justify-between">
         <p className="font-mono text-xs tracking-[0.25em] uppercase text-[#7d4e3f]">
           Project Visuals
@@ -33,9 +39,10 @@ export default function ProjectVisualsSection({
       <div className="grid gap-4 md:grid-cols-2">
         {projects.map((project, index) => (
           <article
+            data-reveal
             key={project.id}
-            className="glass-card hover-lift reveal-up rounded-2xl p-4"
-            style={{ animationDelay: `${420 + index * 90}ms` }}
+            className="glass-card hover-lift rounded-2xl p-4"
+            style={{ "--reveal-delay": `${420 + index * 90}ms` } as CSSProperties}
           >
             <button
               type="button"
@@ -54,6 +61,7 @@ export default function ProjectVisualsSection({
                 <p className="text-xs text-[#6f6159]">Add screenshot later</p>
               </div>
               <Link
+                data-magnetic
                 href={`/projects/${project.id}`}
                 className="text-sm font-medium underline decoration-[#d9653b] decoration-2 underline-offset-3"
               >
@@ -81,6 +89,7 @@ export default function ProjectVisualsSection({
               <h3 className="text-lg font-semibold">{activeProject.name} Preview</h3>
               <button
                 type="button"
+                data-magnetic
                 className="btn-pop hover-dark-invert rounded-full border border-[#1f1c1a]/25 px-3 py-1 text-sm"
                 onClick={() => setActiveProjectId(null)}
               >

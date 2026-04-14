@@ -105,16 +105,16 @@ export default async function Home() {
             </div>
           </div>
           <nav className="hidden items-center gap-1 md:flex">
-            <a href="#projects" className="nav-link rounded-full px-4 py-2 text-sm">
+            <a data-magnetic href="#projects" className="nav-link rounded-full px-4 py-2 text-sm">
               Projects
             </a>
-            <a href="#capabilities" className="nav-link rounded-full px-4 py-2 text-sm">
+            <a data-magnetic href="#capabilities" className="nav-link rounded-full px-4 py-2 text-sm">
               Capabilities
             </a>
-            <a href={`#${reviewAnchor}`} className="nav-link rounded-full px-4 py-2 text-sm">
+            <a data-magnetic href={`#${reviewAnchor}`} className="nav-link rounded-full px-4 py-2 text-sm">
               {testimonials.length > 0 ? "Reviews" : "About"}
             </a>
-            <a href="#contact" className="nav-link rounded-full px-4 py-2 text-sm">
+            <a data-magnetic href="#contact" className="nav-link rounded-full px-4 py-2 text-sm">
               Contact
             </a>
           </nav>
@@ -128,26 +128,28 @@ export default async function Home() {
               <span className="h-2 w-2 rounded-full bg-[#68b65a]" />
               Building real systems, not demos
             </div>
-            <h1 className="headline max-w-3xl text-5xl font-semibold leading-[0.9] md:text-7xl xl:text-8xl">
+            <h1 className="headline type-display max-w-3xl font-semibold">
               Crafting
               <br />
               useful software
               <br />
               for real teams.
             </h1>
-            <p className="text-body max-w-2xl text-base leading-relaxed md:text-lg">
+            <p className="text-body type-body max-w-2xl">
               I design and develop mobile apps, admin dashboards, and backend-powered
               workflows. My focus is practical delivery: clearer operations, better data
               visibility, and smoother user flow.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
+                data-magnetic
                 href="#projects"
                 className="btn-pop btn-solid rounded-full px-5 py-2.5 text-sm font-medium"
               >
-                Explore Projects
+                Start a Conversation
               </a>
               <a
+                data-magnetic
                 href={profile.resumeFile}
                 download
                 className="btn-pop hover-dark-invert rounded-full border border-[var(--card-border-strong)] px-5 py-2.5 text-sm font-medium"
@@ -155,10 +157,11 @@ export default async function Home() {
                 Download CV
               </a>
               <a
+                data-magnetic
                 href="#contact"
                 className="btn-pop hover-dark-invert rounded-full border border-[var(--card-border-strong)] px-5 py-2.5 text-sm font-medium"
               >
-                Let&apos;s Work
+                Contact
               </a>
             </div>
             <div className="grid gap-3 sm:grid-cols-3">
@@ -178,7 +181,7 @@ export default async function Home() {
           </div>
 
           <aside className="surface-soft rounded-[2rem] border border-[var(--card-border)] p-5 md:p-6">
-            <div className="portrait-stage relative overflow-hidden rounded-[1.6rem] border border-[var(--card-border)] p-4">
+            <div data-parallax data-parallax-intensity="7" className="portrait-stage relative overflow-hidden rounded-[1.6rem] border border-[var(--card-border)] p-4">
               <div className="portrait-ring mx-auto mb-4 flex h-72 w-72 items-center justify-center rounded-full md:h-[21rem] md:w-[21rem]">
                 <div className="relative h-64 w-64 overflow-hidden rounded-full border border-[var(--card-border-strong)] md:h-[19rem] md:w-[19rem]">
                   <Image
@@ -219,7 +222,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section id="capabilities" data-reveal style={{ "--reveal-delay": "120ms" } as CSSProperties} className="mt-14">
+      <section id="capabilities" data-reveal style={{ "--reveal-delay": "120ms" } as CSSProperties} className="section-gap">
         <div className="mb-5 flex items-center gap-3">
           <p className="section-kicker font-mono text-xs tracking-[0.25em] uppercase">
             What I Bring
@@ -242,7 +245,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section id="craft" data-reveal style={{ "--reveal-delay": "160ms" } as CSSProperties} className="mt-14">
+      <section id="craft" data-reveal style={{ "--reveal-delay": "160ms" } as CSSProperties} className="section-gap">
         <div className="mb-5 flex items-center gap-3">
           <p className="section-kicker font-mono text-xs tracking-[0.25em] uppercase">
             Craft Stack
@@ -289,7 +292,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section id="projects" data-reveal style={{ "--reveal-delay": "180ms" } as CSSProperties} className="mt-14">
+      <section id="projects" data-reveal style={{ "--reveal-delay": "180ms" } as CSSProperties} className="section-gap">
         <div className="mb-5 flex items-center gap-3">
           <p className="section-kicker font-mono text-xs tracking-[0.25em] uppercase">
             Signature Work
@@ -300,7 +303,7 @@ export default async function Home() {
         {leadProject ? (
           <article className="glass-card hover-lift mb-6 rounded-[2rem] p-5 md:p-6">
             <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-              <div className="project-frame rounded-[1.5rem] p-3">
+              <div data-parallax data-parallax-intensity="5" className="project-frame rounded-[1.5rem] p-3">
                 <ScreenshotPlaceholder
                   screenshot={leadProject.screenshots[0]}
                   title={leadProject.name}
@@ -327,6 +330,7 @@ export default async function Home() {
                 <div className="mt-5 flex flex-wrap gap-2">
                   {leadProject.liveUrl ? (
                     <a
+                      data-magnetic
                       href={leadProject.liveUrl}
                       target="_blank"
                       rel="noreferrer"
@@ -336,6 +340,7 @@ export default async function Home() {
                     </a>
                   ) : null}
                   <a
+                    data-magnetic
                     href={leadProject.repoUrl}
                     target="_blank"
                     rel="noreferrer"
@@ -344,6 +349,7 @@ export default async function Home() {
                     GitHub Repo
                   </a>
                   <Link
+                    data-magnetic
                     href={`/projects/${leadProject.id}`}
                     className="btn-pop hover-dark-invert rounded-full border border-[var(--card-border-strong)] px-4 py-2 text-sm font-medium"
                   >
@@ -381,6 +387,7 @@ export default async function Home() {
               </div>
               <div className="mt-4 flex flex-wrap gap-2">
                 <a
+                  data-magnetic
                   href={project.repoUrl}
                   target="_blank"
                   rel="noreferrer"
@@ -389,6 +396,7 @@ export default async function Home() {
                   Repo
                 </a>
                 <Link
+                  data-magnetic
                   href={`/projects/${project.id}`}
                   className="btn-pop hover-dark-invert rounded-full border border-[var(--card-border-strong)] px-4 py-2 text-sm font-medium"
                 >
@@ -402,7 +410,7 @@ export default async function Home() {
 
       <ProjectVisualsSection projects={featuredProjects} />
 
-      <section id="about" data-reveal style={{ "--reveal-delay": "220ms" } as CSSProperties} className="mt-14">
+      <section id="about" data-reveal style={{ "--reveal-delay": "220ms" } as CSSProperties} className="section-gap">
         <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
           <article className="glass-card hover-lift rounded-[2rem] p-6 md:p-8">
             <p className="section-kicker font-mono text-xs tracking-[0.25em] uppercase">
@@ -443,7 +451,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section data-reveal style={{ "--reveal-delay": "260ms" } as CSSProperties} className="mt-12">
+      <section data-reveal style={{ "--reveal-delay": "260ms" } as CSSProperties} className="section-gap">
         <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
           {metrics.map((item) => (
             <article key={item.value} className="glass-card hover-lift rounded-[1.5rem] p-4">
@@ -455,7 +463,7 @@ export default async function Home() {
       </section>
 
       {currentlyBuildingItems.length > 0 && (
-        <section data-reveal style={{ "--reveal-delay": "300ms" } as CSSProperties} className="mt-12">
+        <section data-reveal style={{ "--reveal-delay": "300ms" } as CSSProperties} className="section-gap">
           <div className="mb-4 flex items-center gap-3">
             <p className="section-kicker font-mono text-xs tracking-[0.25em] uppercase">
               Currently Building
@@ -475,7 +483,7 @@ export default async function Home() {
       )}
 
       {testimonials.length > 0 && (
-        <section id="reviews" data-reveal style={{ "--reveal-delay": "340ms" } as CSSProperties} className="mt-12">
+        <section id="reviews" data-reveal style={{ "--reveal-delay": "340ms" } as CSSProperties} className="section-gap">
           <div className="mb-4 flex items-center gap-3">
             <p className="section-kicker font-mono text-xs tracking-[0.25em] uppercase">
               Testimonials
@@ -497,7 +505,7 @@ export default async function Home() {
         </section>
       )}
 
-      <section id="contact" data-reveal style={{ "--reveal-delay": "380ms" } as CSSProperties} className="mt-14 pb-10">
+      <section id="contact" data-reveal style={{ "--reveal-delay": "380ms" } as CSSProperties} className="section-gap pb-10">
         <article className="glass-card hover-lift rounded-[2rem] p-6 md:p-8">
           <p className="section-kicker font-mono text-xs tracking-[0.25em] uppercase">
             Contact
@@ -526,10 +534,11 @@ export default async function Home() {
             </a>
             <CopyEmailButton email={profile.email} />
             <a
+              data-magnetic
               href={`mailto:${profile.email}`}
               className="btn-pop btn-solid rounded-full px-5 py-2.5 text-sm font-medium"
             >
-              Contact Me
+              Start a Conversation
             </a>
           </div>
         </article>

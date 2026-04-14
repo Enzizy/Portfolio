@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { CSSProperties } from "react";
 import ScreenshotPlaceholder from "@/components/screenshot-placeholder";
 import { projects } from "@/data/projects";
 
@@ -23,8 +24,9 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
 
   return (
     <main className="mx-auto w-full max-w-5xl px-5 py-8 md:px-8 md:py-14">
-      <div className="mb-6 flex flex-wrap items-center justify-between gap-2">
+      <div data-reveal style={{ "--reveal-delay": "80ms" } as CSSProperties} className="mb-6 flex flex-wrap items-center justify-between gap-2">
         <Link
+          data-magnetic
           href="/#projects"
           className="rounded-full border border-[#1f1c1a]/30 px-4 py-1.5 text-sm font-medium"
         >
@@ -33,6 +35,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
         <div className="flex flex-wrap gap-2">
           {project.liveUrl ? (
             <a
+              data-magnetic
               href={project.liveUrl}
               target="_blank"
               rel="noreferrer"
@@ -46,6 +49,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
             </span>
           )}
           <a
+            data-magnetic
             href={project.repoUrl}
             target="_blank"
             rel="noreferrer"
@@ -56,7 +60,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
         </div>
       </div>
 
-      <section className="glass-card reveal-up rounded-3xl p-6 md:p-8">
+      <section data-reveal style={{ "--reveal-delay": "120ms" } as CSSProperties} className="glass-card rounded-3xl p-6 md:p-8">
         <p className="font-mono text-xs tracking-[0.25em] uppercase text-[#7d4e3f]">
           Case Study
         </p>
@@ -76,7 +80,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
         </div>
       </section>
 
-      <section className="mt-8 grid gap-4 md:grid-cols-2">
+      <section data-reveal style={{ "--reveal-delay": "170ms" } as CSSProperties} className="section-gap grid gap-4 md:grid-cols-2">
         <article className="glass-card hover-lift rounded-2xl p-5">
           <p className="font-mono text-xs tracking-[0.2em] uppercase text-[#80574a]">Overview</p>
           <p className="mt-3 text-sm leading-relaxed text-[#3b332f]">{project.shortDescription}</p>
@@ -89,7 +93,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
         </article>
       </section>
 
-      <section className="mt-8 grid gap-4 md:grid-cols-2">
+      <section data-reveal style={{ "--reveal-delay": "220ms" } as CSSProperties} className="section-gap grid gap-4 md:grid-cols-2">
         <article className="glass-card hover-lift rounded-2xl p-5">
           <p className="font-mono text-xs tracking-[0.2em] uppercase text-[#80574a]">Problem</p>
           <p className="mt-3 text-sm leading-relaxed text-[#3b332f]">{project.problem}</p>
@@ -100,7 +104,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
         </article>
       </section>
 
-      <section className="mt-8 grid gap-4 md:grid-cols-2">
+      <section data-reveal style={{ "--reveal-delay": "260ms" } as CSSProperties} className="section-gap grid gap-4 md:grid-cols-2">
         <article className="glass-card hover-lift rounded-2xl p-5">
           <p className="font-mono text-xs tracking-[0.2em] uppercase text-[#80574a]">Features</p>
           <ul className="mt-3 space-y-2 text-sm leading-relaxed text-[#3b332f]">
@@ -124,7 +128,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
         </article>
       </section>
 
-      <section className="mt-8">
+      <section data-reveal style={{ "--reveal-delay": "300ms" } as CSSProperties} className="section-gap">
         <p className="font-mono text-xs tracking-[0.25em] uppercase text-[#7d4e3f]">Visuals</p>
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           {project.screenshots.map((screenshot) => (
@@ -139,7 +143,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
       </section>
 
       {project.videoUrl ? (
-        <section className="mt-8">
+        <section data-reveal style={{ "--reveal-delay": "340ms" } as CSSProperties} className="section-gap">
           <p className="font-mono text-xs tracking-[0.25em] uppercase text-[#7d4e3f]">
             Demo Video
           </p>

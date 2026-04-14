@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import InteractionFX from "@/components/interaction-fx";
 import MotionOrchestrator from "@/components/motion-orchestrator";
 import PremiumVFX from "@/components/premium-vfx";
+import RouteTransition from "@/components/route-transition";
 import { Outfit, Space_Mono } from "next/font/google";
 import ThemeToggle from "@/components/theme-toggle";
 import "./globals.css";
@@ -49,9 +51,10 @@ export default function RootLayout({
       </head>
       <body className={`${outfit.variable} ${spaceMono.variable} antialiased`}>
         <PremiumVFX />
+        <InteractionFX />
         <MotionOrchestrator />
         <ThemeToggle />
-        {children}
+        <RouteTransition>{children}</RouteTransition>
       </body>
     </html>
   );
