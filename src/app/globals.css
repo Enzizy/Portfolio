@@ -182,16 +182,7 @@ a:hover {
 
 .hero-copy {
   padding: 0.4rem 0 0.5rem;
-  max-width: 44rem;
-}
-
-.hero-pill {
-  background: color-mix(in srgb, var(--surface-strong) 50%, transparent);
-  backdrop-filter: blur(10px);
-}
-
-.hero-copy__eyebrow {
-  margin-top: 1.2rem;
+  max-width: 38rem;
 }
 
 .status-pill,
@@ -253,36 +244,10 @@ a:hover {
 }
 
 .hero-copy h1 {
-  max-width: 11ch;
-  display: grid;
-  gap: 0.9rem;
-  line-height: 0.95;
-  letter-spacing: -0.055em;
-}
-
-.hero-copy__name {
-  display: inline-flex;
-  align-items: center;
-  width: fit-content;
-  max-width: none;
-  padding: 0.55rem 0.9rem;
-  border: 1px solid color-mix(in srgb, var(--primary) 18%, var(--line));
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--surface-strong) 34%, transparent);
-  backdrop-filter: blur(10px);
-  font-family: var(--font-space-mono), monospace;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  line-height: 1;
-  text-transform: uppercase;
-  color: color-mix(in srgb, var(--primary-deep) 86%, white 14%);
-}
-
-.hero-copy__headline {
-  display: block;
-  max-width: 8.5ch;
-  font-size: clamp(3.1rem, 5.5vw, 5.5rem);
+  max-width: 8.8ch;
+  font-size: clamp(3.2rem, 5.7vw, 5.4rem);
+  line-height: 0.97;
+  letter-spacing: -0.06em;
   color: color-mix(in srgb, var(--text) 94%, white 6%);
 }
 
@@ -302,7 +267,7 @@ a:hover {
 
 .hero-copy__body {
   max-width: 31rem;
-  margin: 1.1rem 0 0;
+  margin: 1.35rem 0 0;
   font-size: 1rem;
   line-height: 1.72;
   color: color-mix(in srgb, var(--text-muted) 92%, white 8%);
@@ -1211,15 +1176,8 @@ html[data-theme="dark"] .theme-profile-image-dark {
   }
 
   .hero-copy h1 {
-    gap: 0.7rem;
-  }
-
-  .hero-copy__name {
-    font-size: 0.78rem;
-  }
-
-  .hero-copy__headline {
-    font-size: clamp(2.6rem, 6vw, 4rem);
+    max-width: 9ch;
+    font-size: clamp(2.8rem, 6.2vw, 4.4rem);
   }
 
   .hero-stage--background::before,
@@ -1274,14 +1232,6 @@ html[data-theme="dark"] .theme-profile-image-dark {
   }
 
   .hero-copy h1 {
-    gap: 0.6rem;
-  }
-
-  .hero-copy__name {
-    font-size: 0.74rem;
-  }
-
-  .hero-copy__headline {
     max-width: 9ch;
     font-size: clamp(2.6rem, 9vw, 3.5rem);
   }

@@ -79,17 +79,9 @@ export default function Home() {
         <Hero3DStage />
         <div className="container hero-grid">
           <div className="hero-copy">
-            <div className="status-pill hero-pill">
-              <span className="status-pill__dot" />
-              Available for internship and entry-level roles
-            </div>
-
-            <p className="eyebrow hero-copy__eyebrow">Developer Portfolio</p>
             <h1>
-              <span className="hero-copy__name">Rolex Zhyronne Batican</span>
-              <span className="hero-copy__headline">
-                I design and build software for real workflows, mobile products, and modern web systems.
-              </span>
+              I design and build software for real workflows, mobile products, and modern web
+              systems.
             </h1>
             <p className="hero-copy__body">
               BSIT student from {profile.location} focused on Flutter, Android, Vue, Node.js,
