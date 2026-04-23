@@ -1,14 +1,10 @@
 import type { Metadata } from "next";
-import InteractionFX from "@/components/interaction-fx";
-import MotionOrchestrator from "@/components/motion-orchestrator";
-import PremiumVFX from "@/components/premium-vfx";
-import RouteTransition from "@/components/route-transition";
-import { Outfit, Space_Mono } from "next/font/google";
+import { Space_Grotesk, Space_Mono } from "next/font/google";
 import ThemeToggle from "@/components/theme-toggle";
 import "./globals.css";
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
 });
 
@@ -19,9 +15,9 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Rolex | Portfolio",
+  title: "Rolex Zhyronne Batican | Developer Portfolio",
   description:
-    "Portfolio of Rolex (Enzizy) - aspiring mobile app developer building Flutter, Android, and web applications.",
+    "Portfolio of Rolex Zhyronne Batican, a BSIT student and developer focused on Flutter, Android, Vue, backend systems, and practical software delivery.",
 };
 
 export default function RootLayout({
@@ -49,12 +45,9 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
-      <body className={`${outfit.variable} ${spaceMono.variable} antialiased`}>
-        <PremiumVFX />
-        <InteractionFX />
-        <MotionOrchestrator />
+      <body className={`${spaceGrotesk.variable} ${spaceMono.variable}`}>
         <ThemeToggle />
-        <RouteTransition>{children}</RouteTransition>
+        {children}
       </body>
     </html>
   );

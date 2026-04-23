@@ -8,6 +8,7 @@ function getCurrentTheme(): ThemeMode {
   if (typeof document === "undefined") {
     return "light";
   }
+
   return document.documentElement.getAttribute("data-theme") === "dark"
     ? "dark"
     : "light";
@@ -29,11 +30,13 @@ export default function ThemeToggle() {
     <button
       type="button"
       onClick={toggleTheme}
-      className="theme-toggle btn-pop"
+      className="theme-toggle"
       aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
       title={`Switch to ${isDark ? "light" : "dark"} mode`}
     >
-      <span aria-hidden="true">{isDark ? "SUN" : "MOON"}</span>
+      <span className="theme-toggle__icon" aria-hidden="true">
+        {isDark ? "☀" : "☾"}
+      </span>
       <span>{isDark ? "Light" : "Dark"}</span>
     </button>
   );

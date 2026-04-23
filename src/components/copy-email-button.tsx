@@ -23,8 +23,7 @@ export default function CopyEmailButton({ email }: CopyEmailButtonProps) {
     <button
       type="button"
       onClick={handleCopy}
-      data-magnetic
-      className="btn-pop hover-dark-invert rounded-full border border-[#1f1c1a]/40 px-4 py-2 text-sm font-medium transition"
+      className="button button--ghost"
       aria-label="Copy email address"
     >
       {copied ? "Copied" : "Copy Email"}
