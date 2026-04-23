@@ -166,19 +166,23 @@ a:hover {
 }
 
 .hero-section {
+  position: relative;
   padding: 3.75rem 0 3rem;
+  overflow: hidden;
+  isolation: isolate;
 }
 
 .hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(300px, 0.85fr);
-  gap: 2.5rem;
+  position: relative;
+  z-index: 2;
+  min-height: calc(100svh - 8.5rem);
+  display: flex;
   align-items: center;
 }
 
 .hero-copy {
   padding: 0.5rem 0;
-  max-width: 40rem;
+  max-width: 52rem;
 }
 
 .status-pill,
@@ -240,8 +244,8 @@ a:hover {
 }
 
 .hero-copy h1 {
-  max-width: 10ch;
-  font-size: clamp(2.85rem, 5.9vw, 4.9rem);
+  max-width: 12ch;
+  font-size: clamp(3rem, 6vw, 5.15rem);
   line-height: 1.02;
   letter-spacing: -0.05em;
 }
@@ -261,7 +265,7 @@ a:hover {
 }
 
 .hero-copy__body {
-  max-width: 34rem;
+  max-width: 38rem;
   margin: 1.15rem 0 0;
   font-size: 0.98rem;
   line-height: 1.75;
@@ -335,11 +339,6 @@ a:hover {
   font-weight: 600;
 }
 
-.hero-visual {
-  display: flex;
-  justify-content: center;
-}
-
 .hero-stage {
   position: relative;
   width: min(100%, 30rem);
@@ -354,6 +353,21 @@ a:hover {
   perspective: 1200px;
 }
 
+.hero-stage--background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--bg) 88%, transparent) 0%, color-mix(in srgb, var(--bg) 82%, transparent) 34%, transparent 68%),
+    radial-gradient(circle at 72% 44%, color-mix(in srgb, var(--primary) 18%, transparent), transparent 20%),
+    linear-gradient(160deg, color-mix(in srgb, var(--surface-strong) 24%, transparent), transparent 76%);
+  box-shadow: none;
+  pointer-events: none;
+}
+
 .hero-stage::before {
   content: "";
   position: absolute;
@@ -361,6 +375,17 @@ a:hover {
   border-radius: 50%;
   border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
   transform: rotateX(70deg);
+}
+
+.hero-stage--background::before {
+  inset: auto;
+  top: 50%;
+  left: 72%;
+  width: clamp(26rem, 42vw, 48rem);
+  height: clamp(26rem, 42vw, 48rem);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotateX(70deg);
+  opacity: 0.65;
 }
 
 .hero-stage__orbital,
@@ -468,6 +493,56 @@ a:hover {
   opacity: 0.55;
   transform: perspective(800px) rotateX(68deg);
   transform-origin: center;
+}
+
+.hero-stage--background .hero-stage__orbital {
+  inset: auto;
+  top: 50%;
+  left: 72%;
+  width: clamp(18rem, 31vw, 28rem);
+  height: clamp(18rem, 31vw, 28rem);
+  transform: translate(-50%, -50%);
+  animation: none;
+}
+
+.hero-stage--background .hero-stage__column {
+  top: 50%;
+  left: 72%;
+  height: clamp(13rem, 24vw, 21rem);
+  transform: translate(-50%, -50%);
+}
+
+.hero-stage--background .hero-stage__cube {
+  top: 43%;
+  left: 72%;
+  width: clamp(6rem, 10vw, 8.5rem);
+  height: clamp(6rem, 10vw, 8.5rem);
+}
+
+.hero-stage--background .hero-stage__plane {
+  width: clamp(10rem, 19vw, 14rem);
+  height: clamp(10rem, 19vw, 14rem);
+}
+
+.hero-stage--background .hero-stage__plane--one {
+  right: 8%;
+  top: 10%;
+}
+
+.hero-stage--background .hero-stage__plane--two {
+  left: auto;
+  right: 26%;
+  bottom: 12%;
+}
+
+.hero-stage--background .hero-stage__grid {
+  inset: auto;
+  left: 57%;
+  right: -4%;
+  top: 50%;
+  height: 58%;
+  opacity: 0.35;
+  transform: perspective(1100px) rotateX(73deg) translateY(-12%);
 }
 
 .section-shell {
@@ -902,8 +977,16 @@ html[data-theme="dark"] .theme-profile-image-dark {
     font-size: clamp(2.9rem, 7vw, 4.4rem);
   }
 
-  .hero-visual {
-    justify-content: flex-start;
+  .hero-stage--background::before,
+  .hero-stage--background .hero-stage__orbital,
+  .hero-stage--background .hero-stage__column,
+  .hero-stage--background .hero-stage__cube {
+    left: 78%;
+  }
+
+  .hero-stage--background .hero-stage__grid {
+    left: 62%;
+    right: -8%;
   }
 
   .project-grid,
@@ -951,6 +1034,30 @@ html[data-theme="dark"] .theme-profile-image-dark {
   .hero-copy__body {
     max-width: 100%;
     font-size: 0.95rem;
+  }
+
+  .hero-grid {
+    min-height: auto;
+  }
+
+  .hero-stage--background {
+    opacity: 0.42;
+    background:
+      linear-gradient(180deg, color-mix(in srgb, var(--bg) 80%, transparent) 0%, color-mix(in srgb, var(--bg) 78%, transparent) 36%, transparent 100%),
+      radial-gradient(circle at 68% 28%, color-mix(in srgb, var(--primary) 16%, transparent), transparent 22%);
+  }
+
+  .hero-stage--background::before,
+  .hero-stage--background .hero-stage__orbital,
+  .hero-stage--background .hero-stage__column,
+  .hero-stage--background .hero-stage__cube {
+    left: 82%;
+  }
+
+  .hero-stage--background .hero-stage__grid {
+    left: 58%;
+    right: -26%;
+    height: 48%;
   }
 
   .contact-panel__actions {

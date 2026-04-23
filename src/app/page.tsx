@@ -76,6 +76,7 @@ export default function Home() {
       </header>
 
       <section className="hero-section" id="top">
+        <Hero3DStage />
         <div className="container hero-grid">
           <div className="hero-copy">
             <div className="status-pill">
@@ -117,10 +118,6 @@ export default function Home() {
                 <dd>{profile.availability}</dd>
               </div>
             </dl>
-          </div>
-
-          <div className="hero-visual">
-            <Hero3DStage />
           </div>
         </div>
       </section>
