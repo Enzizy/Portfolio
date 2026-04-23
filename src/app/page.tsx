@@ -79,20 +79,23 @@ export default function Home() {
         <Hero3DStage />
         <div className="container hero-grid">
           <div className="hero-copy">
-            <div className="status-pill">
+            <div className="status-pill hero-pill">
               <span className="status-pill__dot" />
               Available for internship and entry-level roles
             </div>
 
-            <p className="eyebrow">Developer Portfolio</p>
+            <p className="eyebrow hero-copy__eyebrow">Developer Portfolio</p>
             <h1>
-              Rolex Zhyronne Batican builds practical software with clean architecture and
-              product discipline.
+              <span className="hero-copy__name">Rolex Zhyronne Batican</span>
+              <span className="hero-copy__headline">
+                Building practical software with clean architecture and sharp product instincts.
+              </span>
             </h1>
             <p className="hero-copy__body">
               BSIT student from {profile.location} focused on Flutter, Android, Vue, Node.js,
-              Firebase, Supabase, and deployable web systems. I build apps that improve
-              workflows, reduce friction, and stay maintainable after the first release.
+              Firebase, Supabase, and deployable systems. I build products that reduce workflow
+              friction, stay maintainable after launch, and feel deliberate from the first
+              screen to the last implementation detail.
             </p>
 
             <div className="hero-actions">
@@ -104,9 +107,9 @@ export default function Home() {
               </a>
             </div>
 
-            <dl className="hero-metrics">
+            <dl className="hero-metrics hero-metrics--featured">
               <div>
-                <dt>Based In</dt>
+                <dt>Base</dt>
                 <dd>{profile.location}</dd>
               </div>
               <div>
