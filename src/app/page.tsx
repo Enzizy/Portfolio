@@ -84,9 +84,8 @@ export default function Home() {
               systems.
             </h1>
             <p className="hero-copy__body">
-              BSIT student from {profile.location} focused on Flutter, Android, Vue, Node.js,
-              Firebase, Supabase, and deployable systems. I care about maintainable architecture,
-              usable interfaces, and shipping features that solve real operational problems.
+              BSIT student from {profile.location} building maintainable Flutter, Android, and
+              web systems for real operational needs.
             </p>
 
             <div className="hero-actions">
