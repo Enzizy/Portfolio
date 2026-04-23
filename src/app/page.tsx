@@ -88,14 +88,13 @@ export default function Home() {
             <h1>
               <span className="hero-copy__name">Rolex Zhyronne Batican</span>
               <span className="hero-copy__headline">
-                Building practical software with clean architecture and sharp product instincts.
+                I design and build software for real workflows, mobile products, and modern web systems.
               </span>
             </h1>
             <p className="hero-copy__body">
               BSIT student from {profile.location} focused on Flutter, Android, Vue, Node.js,
-              Firebase, Supabase, and deployable systems. I build products that reduce workflow
-              friction, stay maintainable after launch, and feel deliberate from the first
-              screen to the last implementation detail.
+              Firebase, Supabase, and deployable systems. I care about maintainable architecture,
+              usable interfaces, and shipping features that solve real operational problems.
             </p>
 
             <div className="hero-actions">

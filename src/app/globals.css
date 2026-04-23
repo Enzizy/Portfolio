@@ -167,7 +167,7 @@ a:hover {
 
 .hero-section {
   position: relative;
-  padding: 4.5rem 0 3.25rem;
+  padding: 3.6rem 0 2.8rem;
   overflow: hidden;
   isolation: isolate;
 }
@@ -175,14 +175,14 @@ a:hover {
 .hero-grid {
   position: relative;
   z-index: 2;
-  min-height: calc(100svh - 9.25rem);
+  min-height: calc(100svh - 9.5rem);
   display: flex;
   align-items: center;
 }
 
 .hero-copy {
-  padding: 0.85rem 0 0.5rem;
-  max-width: 62rem;
+  padding: 0.4rem 0 0.5rem;
+  max-width: 44rem;
 }
 
 .hero-pill {
@@ -191,7 +191,7 @@ a:hover {
 }
 
 .hero-copy__eyebrow {
-  margin-top: 1.7rem;
+  margin-top: 1.2rem;
 }
 
 .status-pill,
@@ -253,25 +253,37 @@ a:hover {
 }
 
 .hero-copy h1 {
-  max-width: 13ch;
+  max-width: 11ch;
   display: grid;
-  gap: 0.85rem;
-  line-height: 0.98;
-  letter-spacing: -0.06em;
+  gap: 0.9rem;
+  line-height: 0.95;
+  letter-spacing: -0.055em;
 }
 
 .hero-copy__name {
-  display: block;
-  max-width: 8.5ch;
-  font-size: clamp(3.4rem, 6.3vw, 6.2rem);
-  color: color-mix(in srgb, var(--text) 95%, white 5%);
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  max-width: none;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--primary) 18%, var(--line));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface-strong) 34%, transparent);
+  backdrop-filter: blur(10px);
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--primary-deep) 86%, white 14%);
 }
 
 .hero-copy__headline {
   display: block;
-  max-width: 11.5ch;
-  font-size: clamp(2.4rem, 4.8vw, 4.6rem);
-  color: color-mix(in srgb, var(--text) 90%, var(--primary-deep) 10%);
+  max-width: 8.5ch;
+  font-size: clamp(3.1rem, 5.5vw, 5.5rem);
+  color: color-mix(in srgb, var(--text) 94%, white 6%);
 }
 
 .hero-copy__body,
@@ -289,11 +301,11 @@ a:hover {
 }
 
 .hero-copy__body {
-  max-width: 35rem;
-  margin: 1.4rem 0 0;
-  font-size: 1.02rem;
-  line-height: 1.82;
-  color: color-mix(in srgb, var(--text-muted) 88%, white 12%);
+  max-width: 31rem;
+  margin: 1.1rem 0 0;
+  font-size: 1rem;
+  line-height: 1.72;
+  color: color-mix(in srgb, var(--text-muted) 92%, white 8%);
 }
 
 .hero-actions,
@@ -302,7 +314,7 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 0.85rem;
-  margin-top: 1.35rem;
+  margin-top: 1.2rem;
 }
 
 .button {
@@ -334,14 +346,14 @@ a:hover {
 }
 
 .hero-metrics {
-  margin: 1.8rem 0 0;
+  margin: 1.35rem 0 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
 
 .hero-metrics--featured {
-  max-width: 52rem;
+  max-width: 42rem;
 }
 
 .hero-metrics > div,
@@ -391,9 +403,9 @@ a:hover {
   border: 0;
   border-radius: 0;
   background:
-    linear-gradient(90deg, color-mix(in srgb, var(--bg) 92%, transparent) 0%, color-mix(in srgb, var(--bg) 84%, transparent) 26%, rgba(3, 18, 27, 0.38) 52%, transparent 78%),
-    radial-gradient(circle at 73% 44%, color-mix(in srgb, var(--primary) 22%, transparent), transparent 20%),
-    radial-gradient(circle at 84% 18%, color-mix(in srgb, var(--primary) 12%, transparent), transparent 18%),
+    linear-gradient(90deg, color-mix(in srgb, var(--bg) 96%, transparent) 0%, color-mix(in srgb, var(--bg) 92%, transparent) 32%, rgba(3, 18, 27, 0.18) 56%, transparent 78%),
+    radial-gradient(circle at 76% 46%, color-mix(in srgb, var(--primary) 16%, transparent), transparent 18%),
+    radial-gradient(circle at 86% 20%, color-mix(in srgb, var(--primary) 8%, transparent), transparent 16%),
     linear-gradient(160deg, color-mix(in srgb, var(--surface-strong) 30%, transparent), transparent 76%);
   box-shadow: none;
   pointer-events: none;
@@ -411,12 +423,12 @@ a:hover {
 .hero-stage--background::before {
   inset: auto;
   top: 50%;
-  left: 72%;
-  width: clamp(26rem, 42vw, 48rem);
-  height: clamp(26rem, 42vw, 48rem);
+  left: 78%;
+  width: clamp(24rem, 34vw, 38rem);
+  height: clamp(24rem, 34vw, 38rem);
   border-radius: 50%;
   transform: translate(-50%, -50%) rotateX(70deg);
-  opacity: 0.65;
+  opacity: 0.42;
 }
 
 .hero-stage__glow,
@@ -435,20 +447,20 @@ a:hover {
 }
 
 .hero-stage__glow--core {
-  top: 34%;
-  left: 71%;
-  width: clamp(12rem, 24vw, 20rem);
-  height: clamp(12rem, 24vw, 20rem);
-  background: radial-gradient(circle, color-mix(in srgb, var(--primary) 32%, transparent), transparent 70%);
+  top: 45%;
+  left: 77%;
+  width: clamp(11rem, 18vw, 16rem);
+  height: clamp(11rem, 18vw, 16rem);
+  background: radial-gradient(circle, color-mix(in srgb, var(--primary) 22%, transparent), transparent 70%);
   transform: translate(-50%, -50%);
 }
 
 .hero-stage__glow--trail {
-  bottom: 8%;
-  right: 14%;
-  width: clamp(14rem, 28vw, 24rem);
-  height: clamp(8rem, 14vw, 12rem);
-  background: radial-gradient(circle, color-mix(in srgb, var(--primary) 18%, transparent), transparent 72%);
+  bottom: 10%;
+  right: 8%;
+  width: clamp(10rem, 20vw, 16rem);
+  height: clamp(6rem, 10vw, 9rem);
+  background: radial-gradient(circle, color-mix(in srgb, var(--primary) 12%, transparent), transparent 72%);
 }
 
 .hero-stage__beam {
@@ -459,35 +471,35 @@ a:hover {
 }
 
 .hero-stage__beam--left {
-  left: 40%;
-  width: 30%;
+  left: 52%;
+  width: 22%;
   transform: rotate(-12deg);
 }
 
 .hero-stage__beam--right {
-  right: 4%;
-  width: 26%;
+  right: 3%;
+  width: 18%;
   transform: rotate(-8deg);
 }
 
 .hero-stage__halo {
   top: 50%;
-  left: 72%;
+  left: 78%;
   border-radius: 50%;
   border: 1px solid color-mix(in srgb, var(--primary) 26%, transparent);
   transform: translate(-50%, -50%);
 }
 
 .hero-stage__halo--outer {
-  width: clamp(24rem, 38vw, 40rem);
-  height: clamp(24rem, 38vw, 40rem);
-  opacity: 0.32;
+  width: clamp(20rem, 30vw, 30rem);
+  height: clamp(20rem, 30vw, 30rem);
+  opacity: 0.18;
 }
 
 .hero-stage__halo--inner {
-  width: clamp(14rem, 22vw, 22rem);
-  height: clamp(14rem, 22vw, 22rem);
-  opacity: 0.24;
+  width: clamp(12rem, 18vw, 18rem);
+  height: clamp(12rem, 18vw, 18rem);
+  opacity: 0.16;
 }
 
 .hero-stage__orbital,
@@ -622,37 +634,37 @@ a:hover {
 .hero-stage--background .hero-stage__orbital {
   inset: auto;
   top: 50%;
-  left: 72%;
-  width: clamp(18rem, 31vw, 28rem);
-  height: clamp(18rem, 31vw, 28rem);
+  left: 78%;
+  width: clamp(16rem, 24vw, 24rem);
+  height: clamp(16rem, 24vw, 24rem);
   transform: translate(-50%, -50%);
   animation: orbital-sway 16s ease-in-out infinite;
 }
 
 .hero-stage--background .hero-stage__orbital--tilted {
-  width: clamp(20rem, 35vw, 31rem);
-  height: clamp(13rem, 21vw, 19rem);
+  width: clamp(16rem, 28vw, 24rem);
+  height: clamp(10rem, 16vw, 14rem);
   transform: translate(-50%, -50%) rotate(-10deg);
   opacity: 0.22;
 }
 
 .hero-stage--background .hero-stage__column {
   top: 50%;
-  left: 72%;
-  height: clamp(13rem, 24vw, 21rem);
+  left: 78%;
+  height: clamp(10rem, 16vw, 15rem);
   transform: translate(-50%, -50%);
 }
 
 .hero-stage--background .hero-stage__cube {
-  top: 43%;
-  left: 72%;
-  width: clamp(6rem, 10vw, 8.5rem);
-  height: clamp(6rem, 10vw, 8.5rem);
+  top: 42%;
+  left: 78%;
+  width: clamp(5rem, 8vw, 7rem);
+  height: clamp(5rem, 8vw, 7rem);
 }
 
 .hero-stage--background .hero-stage__cube--ghost {
-  top: 47%;
-  left: 66%;
+  top: 48%;
+  left: 72%;
 }
 
 .hero-stage--background .hero-stage__plane {
@@ -662,45 +674,53 @@ a:hover {
 
 .hero-stage--background .hero-stage__plane--one {
   right: 8%;
-  top: 10%;
+  top: 12%;
+  opacity: 0.32;
 }
 
 .hero-stage--background .hero-stage__plane--two {
   left: auto;
-  right: 26%;
-  bottom: 12%;
+  right: 24%;
+  bottom: 16%;
+  opacity: 0.24;
+}
+
+.hero-stage--background .hero-stage__plane--three {
+  right: 18%;
+  top: 28%;
+  opacity: 0.18;
 }
 
 .hero-stage--background .hero-stage__grid {
   inset: auto;
-  left: 57%;
+  left: 66%;
   right: -4%;
-  top: 50%;
-  height: 58%;
-  opacity: 0.35;
+  top: 54%;
+  height: 38%;
+  opacity: 0.2;
   transform: perspective(1100px) rotateX(73deg) translateY(-12%);
 }
 
 .hero-stage--background .hero-stage__ring {
   top: 50%;
-  left: 72%;
+  left: 78%;
   border-radius: 50%;
   border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
   transform: translate(-50%, -50%);
 }
 
 .hero-stage--background .hero-stage__ring--horizontal {
-  width: clamp(26rem, 46vw, 40rem);
-  height: clamp(8rem, 12vw, 10rem);
+  width: clamp(18rem, 30vw, 26rem);
+  height: clamp(6rem, 9vw, 8rem);
   transform: translate(-50%, -50%) rotate(6deg);
-  opacity: 0.24;
+  opacity: 0.14;
 }
 
 .hero-stage--background .hero-stage__ring--diagonal {
-  width: clamp(20rem, 34vw, 30rem);
-  height: clamp(20rem, 34vw, 30rem);
+  width: clamp(14rem, 22vw, 20rem);
+  height: clamp(14rem, 22vw, 20rem);
   transform: translate(-50%, -50%) rotateX(72deg) rotate(22deg);
-  opacity: 0.18;
+  opacity: 0.12;
 }
 
 .hero-stage--background .hero-stage__shard {
@@ -710,23 +730,23 @@ a:hover {
 }
 
 .hero-stage--background .hero-stage__shard--one {
-  top: 18%;
-  left: 70%;
-  height: 22%;
+  top: 22%;
+  left: 75%;
+  height: 16%;
   transform: rotate(7deg);
 }
 
 .hero-stage--background .hero-stage__shard--two {
   top: 40%;
-  left: 78%;
-  height: 18%;
+  left: 82%;
+  height: 12%;
   transform: rotate(-14deg);
 }
 
 .hero-stage--background .hero-stage__shard--three {
-  bottom: 16%;
-  left: 63%;
-  height: 14%;
+  bottom: 18%;
+  left: 72%;
+  height: 10%;
   transform: rotate(11deg);
 }
 
@@ -739,18 +759,18 @@ a:hover {
 }
 
 .hero-stage--background .hero-stage__dust--one {
-  top: 26%;
-  left: 61%;
+  top: 28%;
+  left: 70%;
 }
 
 .hero-stage--background .hero-stage__dust--two {
-  top: 63%;
-  left: 82%;
+  top: 62%;
+  left: 84%;
 }
 
 .hero-stage--background .hero-stage__dust--three {
-  top: 54%;
-  left: 69%;
+  top: 50%;
+  left: 76%;
 }
 
 .section-shell {
@@ -1187,7 +1207,7 @@ html[data-theme="dark"] .theme-profile-image-dark {
   }
 
   .hero-copy {
-    max-width: 48rem;
+    max-width: 42rem;
   }
 
   .hero-copy h1 {
@@ -1195,11 +1215,11 @@ html[data-theme="dark"] .theme-profile-image-dark {
   }
 
   .hero-copy__name {
-    font-size: clamp(3rem, 8vw, 5rem);
+    font-size: 0.78rem;
   }
 
   .hero-copy__headline {
-    font-size: clamp(2.1rem, 5vw, 3.7rem);
+    font-size: clamp(2.6rem, 6vw, 4rem);
   }
 
   .hero-stage--background::before,
@@ -1208,11 +1228,11 @@ html[data-theme="dark"] .theme-profile-image-dark {
   .hero-stage--background .hero-stage__column,
   .hero-stage--background .hero-stage__cube,
   .hero-stage--background .hero-stage__ring {
-    left: 78%;
+    left: 82%;
   }
 
   .hero-stage--background .hero-stage__grid {
-    left: 62%;
+    left: 70%;
     right: -8%;
   }
 
@@ -1258,13 +1278,12 @@ html[data-theme="dark"] .theme-profile-image-dark {
   }
 
   .hero-copy__name {
-    max-width: 9ch;
-    font-size: clamp(2.9rem, 12vw, 4.4rem);
+    font-size: 0.74rem;
   }
 
   .hero-copy__headline {
-    max-width: 12ch;
-    font-size: clamp(2rem, 8vw, 3rem);
+    max-width: 9ch;
+    font-size: clamp(2.6rem, 9vw, 3.5rem);
   }
 
   .hero-copy__body {
@@ -1277,10 +1296,10 @@ html[data-theme="dark"] .theme-profile-image-dark {
   }
 
   .hero-stage--background {
-    opacity: 0.42;
+    opacity: 0.34;
     background:
-      linear-gradient(180deg, color-mix(in srgb, var(--bg) 80%, transparent) 0%, color-mix(in srgb, var(--bg) 78%, transparent) 36%, transparent 100%),
-      radial-gradient(circle at 68% 28%, color-mix(in srgb, var(--primary) 16%, transparent), transparent 22%);
+      linear-gradient(180deg, color-mix(in srgb, var(--bg) 88%, transparent) 0%, color-mix(in srgb, var(--bg) 82%, transparent) 42%, transparent 100%),
+      radial-gradient(circle at 80% 24%, color-mix(in srgb, var(--primary) 10%, transparent), transparent 20%);
   }
 
   .hero-stage--background::before,
@@ -1289,13 +1308,13 @@ html[data-theme="dark"] .theme-profile-image-dark {
   .hero-stage--background .hero-stage__column,
   .hero-stage--background .hero-stage__cube,
   .hero-stage--background .hero-stage__ring {
-    left: 82%;
+    left: 86%;
   }
 
   .hero-stage--background .hero-stage__grid {
-    left: 58%;
-    right: -26%;
-    height: 48%;
+    left: 74%;
+    right: -30%;
+    height: 34%;
   }
 
   .contact-panel__actions {
