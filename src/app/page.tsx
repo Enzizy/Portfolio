@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import Hero3DStage from "@/components/hero-3d-stage";
 import CopyEmailButton from "@/components/copy-email-button";
 import { profile } from "@/data/profile";
 import { featuredProjects } from "@/data/projects";
@@ -76,7 +75,6 @@ export default function Home() {
       </header>
 
       <section className="hero-section" id="top">
-        <Hero3DStage />
         <div className="container hero-grid">
           <div className="hero-copy">
             <h1>
