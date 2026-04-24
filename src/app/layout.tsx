@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Space_Mono } from "next/font/google";
+import PortfolioChatbot from "@/components/portfolio-chatbot";
 import ThemeToggle from "@/components/theme-toggle";
 import "./globals.css";
 
@@ -47,6 +48,7 @@ export default function RootLayout({
       </head>
       <body className={`${spaceGrotesk.variable} ${spaceMono.variable}`}>
         <ThemeToggle />
+        <PortfolioChatbot />
         {children}
       </body>
     </html>
